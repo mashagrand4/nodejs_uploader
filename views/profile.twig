@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Images uploader</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="js/imagesPreview.js"></script>
+</head>
+<body>
+    <div class="exit-wrap">
+        <a class='btn-exit' href="/logout">LOG OUT</a>
+        <a class='btn-prof' href="/upload">UPLOAD</a>
+    </div>
+    <div class="wrap_images">
+        {% for path in paths %}
+            <img src="{{ path }}" />
+        {% endfor %}
+    </div>
+
+</body>
+</html>

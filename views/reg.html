@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="css/form.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/validation.js"></script>
+</head>
+<body>
+    <div class="logo">
+        <img src="images/logo_big.png" alt="">
+    </div>
+    <div class="log-wrap">
+        <form id="form" name="form" action='/reg' method="post">
+            <label id="user" for="name"></label>
+            <input autofocus type="text" name="name" id="name" placeholder="Username" required/>
+            <label id="pass" for="password"></label>
+            <input type="password" name="password" id="password" placeholder="Password" required />
+            <input type="password" name="password" id="confirm_password" placeholder="Repeat password" required />
+            <input type="submit" id="submit" name="submit" value="SIGN UP"/>
+        </form>
+        <a href="/">Back to sign in</a>
+    </div>
+</body>
+</html>
