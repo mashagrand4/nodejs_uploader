@@ -5,8 +5,15 @@ var path = require('path');
 var fs = require('fs');
 var mongoose = require("mongoose");
 var cookieParser = require('cookie-parser');
-var Twig = require('twig'), // Twig module
-    twig = Twig.twig;       // Render function
+// var hbs = require('handlebars');
+var handlebars = require('handlebars-engine');
+
+// Handlebars.registerHelper('for', function(n, block) {
+//     var accum = '';
+//     for(var i = 0; i < n; i++)
+//         accum += block.fn(i);
+//     return accum;
+// });
 
 var app = express();
 
@@ -37,6 +44,11 @@ db.on("error", console.error.bind(console, "connection error"));
 db.once("open", function(callback) {
     console.log("Connection succeeded.");
 });
+
+
+app.engine('hbs', handlebars);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'hbs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'media')));
@@ -127,13 +139,10 @@ app.get('/profile', function(req, res){
                     images.images.forEach(function (elem) {
                         imagePaths.push(elem.path);
                     });
-                    res.render('profile.twig', {
-                        paths: imagePaths
-                    });
+                    console.log(imagePaths);
+                    res.render('profile', {paths: imagePaths});
                 } else {
-                    res.render('profile.twig', {
-                        message: 'NO IMG'
-                    });
+                    res.render('profile', {message: 'NO IMG'});
                 }
             });
         }
@@ -152,6 +161,7 @@ app.post('/upload', function(req, res) {
         var userTable = User.findOne({user_cookie: req.cookies[cookieName]});
         if(files.files.length > 1) {
             for(var i = 0; i < files.files.length; i++){
+                console.log(__dirname);
                 let newpath = __dirname + '/media/' + files.files[i].name;
                 let name = files.files[i].name;
                 let old = files.files[i].path;
