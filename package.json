@@ -25,6 +25,8 @@
     "source-map-support": "0.4.3"
   },
   "devDependencies": {
+    "eslint-config-airbnb-base": "^12.1.0",
+    "eslint-plugin-import": "^2.9.0",
     "webpack": "^4.3.0",
     "webpack-cli": "^2.0.13"
   }
