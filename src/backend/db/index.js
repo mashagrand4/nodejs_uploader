@@ -1,4 +1,13 @@
 const mongoose = require('mongoose');
-const config = require('./config');
+const userData = require('./config');
 
-module.exports = mongoose.connect(`mongodb://mary:mary666@ds253468.mlab.com:53468/mydb`);
+mongoose.connect(`mongodb://${userData.username}:${userData.password}@ds253468.mlab.com:53468/mydb`);
+
+var db = mongoose.connection;
+
+db.on("error", console.error.bind(console, "connection error"));
+db.once("open", function(callback) {
+    console.log("Connection succeeded.");
+});
+
+module.exports = db;
