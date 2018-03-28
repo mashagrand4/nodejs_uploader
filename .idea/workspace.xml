@@ -1,148 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="19d00b29-cf07-4e3a-8071-ad46aa2afe2a" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/node_modules/async/CHANGELOG.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/CHANGELOG.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/apply.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/applyEach.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/applyEachSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/asyncify.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/auto.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/autoInject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/bower.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/cargo.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/compose.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/concat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/concatSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/constant.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/detect.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/detectLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/detectSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dir.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/dist/async.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/dist/async.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/dist/async.min.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/doDuring.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/doUntil.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/doWhilst.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/during.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/each.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/eachLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/eachOf.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/eachOfLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/eachOfSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/eachSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/ensureAsync.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/every.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/everyLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/everySeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/filter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/filterLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/filterSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/forever.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/DoublyLinkedList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/applyEach.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/breakLoop.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/concat.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/consoleFunc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/createTester.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/doLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/doParallel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/doParallelLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/doSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/eachOfLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/filter.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/findGetResult.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/getIterator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/initialParams.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/iterator.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/map.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/notId.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/once.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/onlyOnce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/parallel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/queue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/reject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/rest.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/setImmediate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/internal/withoutIndex.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/log.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/map.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/mapLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/mapSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/mapValues.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/mapValuesLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/mapValuesSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/memoize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/nextTick.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/async/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/parallel.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/parallelLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/priorityQueue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/queue.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/race.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/reduce.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/reduceRight.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/reflect.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/reflectAll.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/reject.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/rejectLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/rejectSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/retry.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/retryable.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/seq.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/series.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/setImmediate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/some.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/someLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/someSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/sortBy.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/timeout.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/times.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/timesLimit.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/timesSeries.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/transform.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/unmemoize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/until.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/waterfall.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/async/whilst.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/handlebars/node_modules/async/CHANGELOG.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/handlebars/node_modules/async/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/handlebars/node_modules/async/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/handlebars/node_modules/async/dist/async.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/handlebars/node_modules/async/dist/async.min.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/handlebars/node_modules/async/lib/async.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/handlebars/node_modules/async/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/.travis.yml" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/.travis.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/LICENSE" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/LICENSE" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/example/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/example/parse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/readme.markdown" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/readme.markdown" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/dash.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/test/dash.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/default_bool.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/test/default_bool.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/dotted.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/test/dotted.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/long.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/test/long.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/parse.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/test/parse.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/parse_modified.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/test/parse_modified.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/short.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/test/short.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/minimist/test/whitespace.js" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/minimist/test/whitespace.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/path/.npmignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/path/LICENSE" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/path/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/path/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/path/path.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/form.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/style.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/images/logo_big.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/imagesPreview.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/validation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.config.js" beforeDir="false" />
-    </list>
-    <list id="1a3d4fca-49c6-4523-8e25-991a8721f169" name="Revert &quot;nodejs_uploader/fix: update folder structure&quot;" comment="Revert &quot;nodejs_uploader/fix: update folder structure&quot;&#10;&#10;This reverts commit 310265b" />
     <list id="60c6901f-9e38-4617-a7c0-2abf937730c5" name="nodejs_uploader/fix: update folder structure" comment="nodejs_uploader/fix: update folder structure" />
+    <list default="true" id="19d00b29-cf07-4e3a-8071-ad46aa2afe2a" name="Default" comment="" />
+    <list id="1a3d4fca-49c6-4523-8e25-991a8721f169" name="Revert &quot;nodejs_uploader/fix: update folder structure&quot;" comment="Revert &quot;nodejs_uploader/fix: update folder structure&quot;&#10;&#10;This reverts commit 310265b" />
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -316,7 +177,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1522158494269</updated>
-      <workItem from="1522158499139" duration="18684000" />
+      <workItem from="1522158499139" duration="19096000" />
     </task>
     <task id="LOCAL-00001" summary="nodejs_uploader/fix: remove node_modules/ + add .gitignore">
       <created>1522158714911</created>
@@ -399,7 +260,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18684000" />
+    <option name="totallyTimeSpent" value="19096000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
