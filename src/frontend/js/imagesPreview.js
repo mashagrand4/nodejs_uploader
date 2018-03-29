@@ -54,24 +54,13 @@ window.onload = () => {
                 formData.append("files", fileList[i]);
             }
         }
+        let xhr = new XMLHttpRequest();
+        xhr.open('POST', '/upload', true);
+        xhr.send(formData);
 
-        $.ajax({
-            url: "/upload",
-            data: formData,
-            processData: false,
-            contentType: false,
-            type: "POST",
-            success: data => {
-                alert("DONE");
-
-                fileList = {};
-                files_arr = [];
-                document.querySelector('#previews').innerHTML = '';
-            },
-            error: data => {
-                alert("ERROR - " + data.responseText);
-            }
-        });
+        fileList = {};
+        files_arr = [];
+        document.querySelector('#previews').innerHTML = '';
     });
 
     document.querySelector('#previews').addEventListener('click', e => {
