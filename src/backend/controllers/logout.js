@@ -1,4 +1,4 @@
-var db = require('../db/index');
+const db = require('../db/index');
 const cookieName = require('./config').cookieName;
 
 module.exports = function(req, res){
@@ -8,7 +8,7 @@ module.exports = function(req, res){
         }
     });
     res.clearCookie(cookieName);
-    var html = fs.readFileSync('views/login.html');
+    let html = fs.readFileSync('views/login.html');
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end(html);
 };

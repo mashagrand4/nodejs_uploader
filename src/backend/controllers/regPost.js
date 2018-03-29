@@ -1,10 +1,10 @@
-var db = require('../db/index');
 const cookieName = require('./config').cookieName;
+const User = require('../models/User/index');
 
-module.exports = function(req, res) {
-    var cookie = req.cookies.cookieName;
+module.exports = (req, res) => {
+    let cookie = req.cookies.cookieName;
     if (cookie === undefined) {
-        var randomNumber = Math.random().toString();
+        let randomNumber = Math.random().toString();
         randomNumber = randomNumber.substring(2,randomNumber.length);
         res.cookie(cookieName, randomNumber, { maxAge: 900000, httpOnly: true });
         console.log('cookie created successfully');
@@ -12,7 +12,8 @@ module.exports = function(req, res) {
     else {
         console.log('cookie exists', cookie);
     }
-    var myData = new User({
+    //CHECK MONGOOSE MODULE IN THIS CREATE-MODEL SCOPE!!!!!!!!!!!!!!!!!!!!!
+    let myData = new User({
         _id : new mongoose.Types.ObjectId(),
         'userName': req.body['name'],
         'pass': req.body['password'],
@@ -21,7 +22,7 @@ module.exports = function(req, res) {
     myData.save(function (err, result) {
         if (err) throw err;
         if (result) {
-            var html = fs.readFileSync('views/index.html');
+            let html = fs.readFileSync('views/index.html');
             res.writeHead(200, {'Content-Type': 'text/html'});
             res.end(html);
         }

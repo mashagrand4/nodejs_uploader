@@ -1,19 +1,19 @@
-var fileList = {};
-var files_arr = [];
+let fileList = {};
+let files_arr = [];
 
-var readAndPreview = function (fileItem) {
+let readAndPreview = (fileItem) => {
     if ( /\.(jpe?g|png|pdf)$/i.test(fileItem.name) && fileItem.size < 5242880){
-        var reader = new FileReader();
-        reader.addEventListener("load", function () {
-            var preview_block = document.querySelector('#previews');
-            var div = document.createElement('div');
+        let reader = new FileReader();
+        reader.addEventListener("load", () => {
+            let preview_block = document.querySelector('#previews');
+            let div = document.createElement('div');
             div.classList.add("img-wrap");
             div.dataset.nameImg = fileItem.name;
-            var a = document.createElement('a');
+            let a = document.createElement('a');
             a.classList.add("btn-del");
             a.innerHTML = 'x';
             div.append(a);
-            var image = new Image();
+            let image = new Image();
             image.height = 100;
             image.title = fileItem.name;
             image.src = this.result;
@@ -27,34 +27,33 @@ var readAndPreview = function (fileItem) {
     }
 };
 
-var delPrev = function (event) {
+let delPrev = event => {
     objToArr(fileList);
-    files_arr = files_arr.filter(fileItem => fileItem.name !== event.target.parentNode.dataset.nameImg);
+    files_arr = files_arr.filter( fileItem => {
+        return fileItem.name !== event.target.parentNode.dataset.nameImg;
+    });
     event.target.parentNode.parentNode.removeChild(event.target.parentNode);
     updateFileList();
 };
 
-var updateFileList = function () {
+let updateFileList = () => {
     fileList = Object.assign({}, files_arr);
 };
 
-var objToArr = function(obj) {
+let objToArr = obj => {
     return Array.from(obj);
 };
 
-window.onload = function () {
-
+window.onload = () => {
     document.querySelector('#upload').addEventListener('click', function (e) {
         e.preventDefault();
-        var formData = new FormData();
+        let formData = new FormData();
 
         if (fileList) {
-            for (var i = 0; i < Object.keys(fileList).length; i++) {
+            for (let i = 0; i < Object.keys(fileList).length; i++) {
                 formData.append("files", fileList[i]);
             }
         }
-
-        console.log(formData.getAll('files'));
 
         $.ajax({
             url: "/upload",
@@ -62,33 +61,31 @@ window.onload = function () {
             processData: false,
             contentType: false,
             type: "POST",
-            success: function (data) {
+            success: data => {
                 alert("DONE");
 
                 fileList = {};
                 files_arr = [];
-
                 document.querySelector('#previews').innerHTML = '';
-
             },
-            error: function (data) {
+            error: data => {
                 alert("ERROR - " + data.responseText);
             }
         });
     });
 
-    document.querySelector('#previews').addEventListener('click', function (e) {
+    document.querySelector('#previews').addEventListener('click', e => {
         if (fileList){
             delPrev(e);
         }
     });
 
-    document.querySelector('#file_add').addEventListener('change' , function(e){
+    document.querySelector('#file_add').addEventListener('change' , e => {
         e.preventDefault();
         if (fileList) {
             [].forEach.call(document.querySelector('input[type=file]').files, readAndPreview);
         }
-        var tmp_fileList = objToArr(document.querySelector('input[type=file]').files);
+        let tmp_fileList = objToArr(document.querySelector('input[type=file]').files);
         files_arr = files_arr.concat(tmp_fileList);
         updateFileList(files_arr);
     });
