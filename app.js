@@ -1,11 +1,11 @@
 const express = require('express');
-var bodyParser = require('body-parser');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var handlebars = require('handlebars-engine');
-var router = require('./src/backend/router/routes');
+const bodyParser = require('body-parser');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const handlebars = require('handlebars-engine');
+const router = require('./src/backend/router/routes');
 
-var app = express();
+const app = express();
 
 app.engine('hbs', handlebars);
 app.set('views', __dirname + 'src/backend/views');

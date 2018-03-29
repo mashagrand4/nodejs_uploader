@@ -3,7 +3,7 @@ const userData = require('./config');
 
 mongoose.connect(`mongodb://${userData.username}:${userData.password}@ds253468.mlab.com:53468/mydb`);
 
-var db = mongoose.connection;
+let db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "connection error"));
 db.once("open", function(callback) {
