@@ -2,9 +2,9 @@ const mongoose = require('mongoose');
 const fs = require('fs');
 const cookieName = require('./config').cookieName;
 const User = require('../models/User/index');
-let randomNumber;
 
 module.exports = (req, res) => {
+    let randomNumber;
     let cookie = req.cookies.cookieName;
     if (cookie === undefined) {
         randomNumber = Math.random().toString();
@@ -21,7 +21,7 @@ module.exports = (req, res) => {
         'pass': req.body['password'],
         'user_cookie': randomNumber
     });
-    myData.save(function (err, result) {
+    myData.save((err, result) => {
         if (err) throw err;
         if (result) {
             let html = fs.readFileSync('src/backend/views/index.html');

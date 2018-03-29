@@ -28,10 +28,9 @@ module.exports = (req, res) => {
             }
         }
         else {
-            let newpath = __dirname + '../../../../' + files.sampleFile.name;
-            let name = files.sampleFile.name;
-            let old = files.sampleFile.path;
-            debugger;
+            let newpath = __dirname + '../../../../' + files.files.name;
+            let name = files.files.name;
+            let old = files.files.path;
             fs.rename(old, newpath,  (err) => {
                 if (err) throw err;
                 userTable.exec( (err, user) => {
