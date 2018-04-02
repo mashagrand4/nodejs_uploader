@@ -7,7 +7,7 @@
     "deploy": "npm run build:dev && npx babel-node app.js",
     "build:prod": "webpack --config build/webpack.config.prod.babel.js",
     "build:dev": "webpack --config build/webpack.config.dev.babel.js",
-    "start": "node app.js"
+    "start": "node app.js",
     "lint": "eslint --ext .js src"
   },
   "author": "Mary",
