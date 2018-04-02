@@ -1,3 +1,3 @@
-export let cookie_config = {
-    cookieName: 'user_cookie'
+export default {
+  cookieName: 'user_cookie',
 };

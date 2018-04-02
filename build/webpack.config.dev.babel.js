@@ -1,6 +1,6 @@
-import base from "./webpack.config.base.babel";
+import base from './webpack.config.base.babel';
 
 export default {
-    ...base,
-    mode: 'development'
+  ...base,
+  mode: 'development',
 };

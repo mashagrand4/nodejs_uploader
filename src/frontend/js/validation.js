@@ -1,15 +1,15 @@
-window.onload = function () {
-    let password = document.getElementById("password"),
-        confirm_password = document.getElementById("confirm_password");
+window.onload = () => {
+  const password = document.getElementById('password');
+  const confirmPassword = document.getElementById('confirm_password');
 
-    function validatePassword() {
-        if(password.value !== confirm_password.value) {
-            confirm_password.setCustomValidity("Passwords Don't Match");
-        } else {
-            confirm_password.setCustomValidity('');
-        }
+  const validatePassword = () => {
+    if (password.value !== confirmPassword.value) {
+      confirmPassword.setCustomValidity("Passwords Don't Match");
+    } else {
+      confirmPassword.setCustomValidity('');
     }
+  };
 
-    password.onchange = validatePassword;
-    confirm_password.onkeyup = validatePassword;
+  password.onchange = validatePassword;
+  confirmPassword.onkeyup = validatePassword;
 };
