@@ -1,9 +1,9 @@
-const fs = require('fs')
-const db = require('../db/index');
-const cookieName = require('./config').cookieName;
+import * as fs from 'fs';
+import {db} from "../db";
+import {cookie_config} from "./config";
 
-module.exports = (req, res) => {
-    db.collection('users').findOne({user_cookie: req.cookies[cookieName]}).then( (result) => {
+export let registrationAction = (req, res) => {
+    db.collection('users').findOne({user_cookie: req.cookies[cookie_config.cookieName]}).then( (result) => {
         if(result) {
             let html = fs.readFileSync('src/backend/views/index.html');
             res.writeHead(200, {'Content-Type': 'text/html'});
