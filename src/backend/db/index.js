@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const userData = require('./config');
 
+//import userData from "./config"
+
 mongoose.connect(`mongodb://${userData.username}:${userData.password}@ds253468.mlab.com:53468/mydb`);
 
 let db = mongoose.connection;
