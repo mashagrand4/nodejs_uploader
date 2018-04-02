@@ -10,7 +10,7 @@
     "start": "node app.js",
     "lint": "eslint --ext .js src"
   },
-  "author": "Mary23",
+  "author": "Mary",
   "license": "ISC",
   "dependencies": {
     "@babel/preset-env": "^7.0.0-beta.42",
