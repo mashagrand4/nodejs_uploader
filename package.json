@@ -8,9 +8,9 @@
     "build:prod": "webpack --config build/webpack.config.prod.babel.js",
     "build:dev": "webpack --config build/webpack.config.dev.babel.js",
     "start": "node app.js",
-    "lint": "eslint --ext .js src"
+    "eslint": "eslint --ext .js src"
   },
-  "author": "Mary",
+  "author": "MaryAnn",
   "license": "ISC",
   "dependencies": {
     "@babel/preset-env": "^7.0.0-beta.42",
@@ -47,7 +47,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run lint"
+      "pre-push": "npm run eslint"
     }
   }
 }
