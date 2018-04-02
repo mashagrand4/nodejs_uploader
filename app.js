@@ -1,8 +1,8 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cookieParser = require('cookie-parser');
-const handlebars = require('handlebars-engine');
-const router = require('./src/backend/router/routes');
+import express from'express';
+import bodyParser from 'body-parser';
+import cookieParser from 'cookie-parser';
+import handlebars from 'handlebars-engine';
+import {router} from "./src/backend/router/routes";
 
 const app = express();
 
@@ -16,6 +16,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(router);
 
-port = 3000;
+let port = 3000;
 app.listen(port);
 console.log('Listening at http://localhost:' + port);

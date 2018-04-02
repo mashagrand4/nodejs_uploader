@@ -1,15 +1,15 @@
-const mongoose = require('mongoose');
-const fs = require('fs');
-const cookieName = require('./config').cookieName;
-const User = require('../models/User/index');
+import mongoose from 'mongoose';
+import * as fs from 'fs';
+import {cookie_config} from "./config";
+import {User} from "../models/User";
 
-module.exports = (req, res) => {
+export let regPostAction = (req, res) => {
     let randomNumber;
-    let cookie = req.cookies.cookieName;
+    let cookie = req.cookies[cookie_config.cookieName];
     if (cookie === undefined) {
         randomNumber = Math.random().toString();
         randomNumber = randomNumber.substring(2,randomNumber.length);
-        res.cookie(cookieName, randomNumber, { maxAge: 900000, httpOnly: true });
+        res.cookie(cookie_config.cookieName, randomNumber, { maxAge: 900000, httpOnly: true });
         console.log('cookie created successfully');
     }
     else {

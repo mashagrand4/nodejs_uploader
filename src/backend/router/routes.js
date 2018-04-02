@@ -1,14 +1,14 @@
-const express = require('express');
-const router = express.Router();
+import express from 'express';
+import {loginAction} from "../controllers/login";
+import {logoutAction} from "../controllers/logout";
+import {logPostAction} from "../controllers/logPost";
+import {profileAction} from "../controllers/profile";
+import {registrationAction} from "../controllers/registration";
+import {regPostAction} from "../controllers/regPost";
+import {uploadAction} from "../controllers/upload";
+import {uploadPostAction} from "../controllers/uploadPost";
 
-const loginAction = require('../controllers/login');
-const registrationAction = require('../controllers/registration');
-const logoutAction = require('../controllers/logout');
-const uploadAction = require('../controllers/upload');
-const profileAction = require('../controllers/profile');
-const uploadPostAction = require('../controllers/uploadPost');
-const regPostAction = require('../controllers/regPost');
-const logPostAction = require('../controllers/logPost');
+const router = express.Router();
 
 router.get('/', loginAction);
 router.get('/reg', registrationAction);
@@ -20,4 +20,4 @@ router.post('/upload', uploadPostAction);
 router.post('/reg', regPostAction);
 router.post('/log', logPostAction);
 
-module.exports = router;
+export {router};

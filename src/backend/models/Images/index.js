@@ -1,6 +1,5 @@
-const mongoose = require("mongoose");
-const schema =  require('./schema');
+import mongoose from "mongoose";
+import {schema} from "./schema";
 
-let Images = mongoose.model("Images", schema);
+export let Images = mongoose.model("Images", schema);
 
-module.exports = Images;

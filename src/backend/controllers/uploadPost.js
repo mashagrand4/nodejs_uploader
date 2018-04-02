@@ -1,15 +1,15 @@
-const fs = require('fs');
-const formidable = require('formidable');
-const User = require('../models/User');
-const Images = require('../models/Images/index');
-const cookieName = require('./config').cookieName;
+import * as fs from 'fs';
+import * as formidable from 'formidable';
+import {cookie_config} from "./config";
+import {User} from "../models/User";
+import {Images} from "../models/Images";
 
-module.exports = (req, res) => {
+export let uploadPostAction = (req, res) => {
     let form = new formidable.IncomingForm();
     form.multiples = true;
     form.parse(req, (err, fields, files) => {
         console.log(files);
-        let userTable = User.findOne({user_cookie: req.cookies[cookieName]});
+        let userTable = User.findOne({user_cookie: req.cookies[cookie_config.cookieName]});
         if(files.sampleFile.length > 1) {
             for(let i = 0; i < files.sampleFile.length; i++){
                 let newpath = __dirname + '../../../../' + files.sampleFile[i].name;

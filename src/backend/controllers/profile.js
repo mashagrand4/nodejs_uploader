@@ -1,12 +1,12 @@
-const fs = require('fs');
-const db = require('../db/index');
-const cookieName = require('./config').cookieName;
-const User = require('../models/User/index');
+import * as fs from 'fs';
+import {db} from "../db";
+import {cookie_config} from "./config";
+import {User} from "../models/User";
 
-module.exports = (req, res) => {
-    db.collection('users').findOne({user_cookie: req.cookies[cookieName]}).then(result => {
+export let profileAction = (req, res) => {
+    db.collection('users').findOne({user_cookie: req.cookies[cookie_config.cookieName]}).then(result => {
         if (result) {
-            User.findOne({user_cookie: req.cookies[cookieName]}).populate('images').exec( (err, images) =>{
+            User.findOne({user_cookie: req.cookies[cookie_config.cookieName]}).populate('images').exec( (err, images) =>{
                 if (images) {
                     let imagePaths = [];
                     images.images.forEach( (elem) =>  {

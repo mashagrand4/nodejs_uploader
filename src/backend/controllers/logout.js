@@ -1,14 +1,14 @@
-const fs = require('fs');
-const db = require('../db/index');
-const cookieName = require('./config').cookieName;
+import * as fs from 'fs';
+import {db} from "../db";
+import {cookie_config} from "./config";
 
-module.exports = (req, res) => {
-    db.collection('users').findOne({user_cookie: req.cookies[cookieName]}).then(result => {
+export let logoutAction = (req, res) => {
+    db.collection('users').findOne({user_cookie: req.cookies[cookie_config.cookieName]}).then(result => {
         if(result) {
-            db.collection('users').update({user_cookie: req.cookies[cookieName]}, {$set: {[cookieName] : ''}});
+            db.collection('users').update({user_cookie: req.cookies[cookie_config.cookieName]}, {$set: {[cookie_config.cookieName] : ''}});
         }
     });
-    res.clearCookie(cookieName);
+    res.clearCookie(cookie_config.cookieName);
     let html = fs.readFileSync('src/backend/views/login.html');
     res.writeHead(200, {'Content-Type': 'text/html'});
     res.end(html);

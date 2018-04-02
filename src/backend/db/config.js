@@ -3,5 +3,4 @@ const userData = {
     password: 'mary666'
 };
 
-module.exports = userData;
-//export {userData};
+export {userData};

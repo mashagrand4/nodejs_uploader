@@ -1,7 +1,5 @@
-const mongoose = require('mongoose');
-const userData = require('./config');
-
-//import userData from "./config"
+import mongoose from "mongoose";
+import {userData} from "./config"
 
 mongoose.connect(`mongodb://${userData.username}:${userData.password}@ds253468.mlab.com:53468/mydb`);
 
@@ -12,4 +10,4 @@ db.once("open", function(callback) {
     console.log("Connection succeeded.");
 });
 
-module.exports = db;
+export {db};
