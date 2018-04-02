@@ -1,6 +1,4 @@
-const userData = {
+export default {
   username: 'mary',
   password: 'mary666',
 };
-
-export default userData;

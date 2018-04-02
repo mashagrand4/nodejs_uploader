@@ -1,8 +1,8 @@
 import * as fs from 'fs';
 import * as formidable from 'formidable';
-import { cookieConfig } from './config';
-import { User } from '../models/User';
-import { Images } from '../models/Images';
+import cookieConfig from './config';
+import User from '../models/User';
+import Images from '../models/Images';
 
 export default (req, res) => {
   const form = new formidable.IncomingForm();

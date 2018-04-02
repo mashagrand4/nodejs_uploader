@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const { Schema } = mongoose.Schema;
+const Schema = mongoose.Schema;
 
 export default Schema({
   _id: Schema.Types.ObjectId,
