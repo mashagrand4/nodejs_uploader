@@ -1,6 +1,6 @@
-const path = require("path");
+import path from"path";
 
-const base = {
+export default {
      entry: {
         'main' : path.resolve(__dirname, '../src/frontend/js/imagesPreview.js'),
         'login' : path.resolve(__dirname, '../src/frontend/js/validation.js')
@@ -39,5 +39,3 @@ const base = {
         ]
     }
 };
-
-module.exports = base;
