@@ -1,4 +1,5 @@
 import path from 'path';
+const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 export default {
   entry: {
@@ -6,7 +7,7 @@ export default {
     login: path.resolve(__dirname, '../src/frontend/js/validation.js'),
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../dist'),
     filename: '[name].bundle.js',
   },
   module: {
@@ -23,19 +24,37 @@ export default {
       },
       {
         test: /\.(css)$/,
-        use: {
-          loader: 'style!css',
-        },
+        use: [
+          'style-loader',
+          'css-loader'
+        ],
       },
       {
         test: /\.(png|jpg|gif)$/,
-        use: [
-          {
-            loader: 'file-loader',
-            options: {},
-          },
-        ],
+        use: 'file-loader',
       },
+        {
+            test: /\.hbs$/,
+            loader: "handlebars-template-loader"
+        },
     ],
   },
+  plugins: [
+    new HtmlWebpackPlugin({
+        filename: 'assets/login.html',
+        template: 'src/backend/views/login.html',
+    }),
+      new HtmlWebpackPlugin({
+          filename: 'assets/registration.html',
+          template: 'src/backend/views/reg.html',
+      }),
+      new HtmlWebpackPlugin({
+          filename: 'assets/index.html',
+          template: 'src/backend/views/index.html',
+      }),
+      new HtmlWebpackPlugin({
+          filename: 'assets/profile.hbs',
+          template: 'src/backend/views/profile.hbs',
+      })
+  ],
 };

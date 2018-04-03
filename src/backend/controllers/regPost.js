@@ -23,7 +23,7 @@ export default (req, res) => {
   myData.save((err, result) => {
     if (err) throw err;
     if (result) {
-      const html = fs.readFileSync('src/backend/views/index.html');
+      const html = fs.readFileSync('dist/assets/index.html');
       res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(html);
     }

@@ -1,3 +1,7 @@
+import '../css/style.css';
+import '../css/form.css';
+import "../images/logo_big.png";
+
 window.onload = () => {
   const password = document.getElementById('password');
   const confirmPassword = document.getElementById('confirm_password');

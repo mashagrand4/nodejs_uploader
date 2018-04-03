@@ -9,7 +9,7 @@ export default (req, res) => {
     }
   });
   res.clearCookie(cookieConfig.cookieName);
-  const html = fs.readFileSync('src/backend/views/login.html');
+  const html = fs.readFileSync('dist/assets/login.html');
   res.writeHead(200, { 'Content-Type': 'text/html' });
   res.end(html);
 };

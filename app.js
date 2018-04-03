@@ -11,6 +11,7 @@ app.set('views', `${__dirname}/src/backend/views`);
 app.set('view engine', 'hbs');
 
 app.use(express.static(`${__dirname}/src/frontend`));
+app.use(express.static(`${__dirname}/assets`));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
