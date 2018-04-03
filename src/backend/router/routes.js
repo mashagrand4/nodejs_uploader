@@ -1,12 +1,12 @@
 import express from 'express';
-import { loginAction } from '../controllers/login';
-import { logoutAction } from '../controllers/logout';
-import { logPostAction } from '../controllers/logPost';
-import { profileAction } from '../controllers/profile';
-import { registrationAction } from '../controllers/registration';
-import { regPostAction } from '../controllers/regPost';
-import { uploadAction } from '../controllers/upload';
-import { uploadPostAction } from '../controllers/uploadPost';
+import loginAction from '../controllers/login';
+import logoutAction from '../controllers/logout';
+import logPostAction from '../controllers/logPost';
+import profileAction from '../controllers/profile';
+import registrationAction from '../controllers/registration';
+import regPostAction from '../controllers/regPost';
+import uploadAction from '../controllers/upload';
+import uploadPostAction from '../controllers/uploadPost';
 
 const router = express.Router();
 

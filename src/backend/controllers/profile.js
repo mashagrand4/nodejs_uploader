@@ -1,7 +1,7 @@
 import * as fs from 'fs';
-import { db } from '../db';
-import { cookieConfig } from './config';
-import { User } from '../models/User';
+import db from '../db';
+import cookieConfig from './config';
+import User from '../models/User';
 
 export default (req, res) => {
   db.collection('users').findOne({ user_cookie: req.cookies[cookieConfig.cookieName] }).then((result) => {

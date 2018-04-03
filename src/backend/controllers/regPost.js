@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import * as fs from 'fs';
-import { cookieConfig } from './config';
-import { User } from '../models/User';
+import cookieConfig from './config';
+import User from '../models/User';
 
 export default (req, res) => {
   let randomNumber;

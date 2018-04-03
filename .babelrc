@@ -1,4 +1,4 @@
 {
-  "presets": ["env", "airbnb"],
+  "presets": ["env"],
   "plugins": ["@babel/plugin-proposal-object-rest-spread"]
 }

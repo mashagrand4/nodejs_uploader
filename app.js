@@ -2,7 +2,7 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import handlebars from 'handlebars-engine';
-import { router } from './src/backend/router/routes';
+import router from './src/backend/router/routes';
 
 const app = express();
 
@@ -18,3 +18,4 @@ app.use(router);
 
 const port = 3000;
 app.listen(port);
+console.log(`You can use http://localhost:${port}`);
