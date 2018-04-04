@@ -1,29 +1,17 @@
 import '../css/style.css';
 import '../css/form.css';
+import template from '../previewTemplate.hbs';
+
 
 let fileList = {};
 let filesArr = [];
 
+const isValidFile = fileItem => /\.(jpe?g|png|pdf)$/i.test(fileItem.name) && fileItem.size < 5242880;
+
 const readAndPreview = (fileItem) => {
-  if (/\.(jpe?g|png|pdf)$/i.test(fileItem.name) && fileItem.size < 5242880) {
-    const reader = new FileReader();
-    reader.addEventListener('load', () => {
-      const previewBlock = document.querySelector('#previews');
-      const div = document.createElement('div');
-      div.classList.add('img-wrap');
-      div.dataset.nameImg = fileItem.name;
-      const a = document.createElement('a');
-      a.classList.add('btn-del');
-      a.innerHTML = 'x';
-      div.append(a);
-      const image = new Image();
-      image.height = 100;
-      image.title = fileItem.name;
-      image.src = this.result;
-      div.appendChild(image);
-      previewBlock.append(div);
-    }, false);
-    reader.readAsDataURL(fileItem);
+  if (isValidFile(fileItem)) {
+    const previewBlock = document.querySelector('#previews');
+    previewBlock.innerHTML += template({src: URL.createObjectURL(fileItem)});
   } else {
     alert('Image Size should not be greater than 5Mb and have a extension .jpeg/.png/.pdf');
   }
