@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Images uploader</title>
+</head>
+<body>
+    <div class="exit-wrap">
+        <a class='btn-exit' href="/logout">LOG OUT</a>
+        <a class='btn-prof' href="/profile">PROFILE</a>
+    </div>
+    <div class="wrap_uploader">
+        <div class="file-upload">
+            <form ref='uploadForm'
+                  id='uploadForm'
+                  action='/upload'
+                  method='POST'
+                  encType="multipart/form-data">
+                <label>
+                    <input type="file" name="sampleFile" id="file_add" multiple>
+                    <span>ADD IMAGES</span>
+                </label>
+                <input id='upload' class='upl-btn' type='submit' value='UPLOAD' />
+            </form>
+        </div>
+        <div id="previews"></div>
+    </div>
+<script type="text/javascript" src="dist/js/main.bundle.js"></script><script type="text/javascript" src="dist/js/login.bundle.js"></script></body>
+</html>

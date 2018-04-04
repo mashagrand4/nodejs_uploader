@@ -9,11 +9,11 @@ export default (req, res) => {
       randomNumber = randomNumber.substring(2, randomNumber.length);
       res.cookie(cookieConfig.cookieName, randomNumber, { maxAge: 900000, httpOnly: true });
       db.collection('users').update({ userName: req.body.name }, { $set: { [cookieConfig.cookieName]: randomNumber } });
-      const html = fs.readFileSync('dist/assets/index.html');
+      const html = fs.readFileSync('dist/index.html');
       res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(html);
     } else {
-      const html = fs.readFileSync('dist/assets/login.html');
+      const html = fs.readFileSync('dist/login.html');
       res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(html);
     }

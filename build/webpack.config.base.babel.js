@@ -1,5 +1,5 @@
 import path from 'path';
-const HtmlWebpackPlugin = require('html-webpack-plugin')
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
 export default {
   entry: {
@@ -8,7 +8,8 @@ export default {
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
-    filename: '[name].bundle.js',
+    filename: 'js/[name].bundle.js',
+    publicPath: 'dist',
   },
   module: {
     rules: [
@@ -24,37 +25,39 @@ export default {
       },
       {
         test: /\.(css)$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ],
+        use: ['style-loader', 'css-loader'],
       },
       {
         test: /\.(png|jpg|gif)$/,
-        use: 'file-loader',
-      },
-        {
-            test: /\.hbs$/,
-            loader: "handlebars-template-loader"
+        use: {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'images',
+          },
         },
+      },
+      {
+        test: /\.hbs$/,
+        loader: 'handlebars-template-loader',
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-        filename: 'assets/login.html',
-        template: 'src/backend/views/login.html',
+      filename: 'login.html',
+      template: 'src/backend/views/login.html',
     }),
-      new HtmlWebpackPlugin({
-          filename: 'assets/registration.html',
-          template: 'src/backend/views/reg.html',
-      }),
-      new HtmlWebpackPlugin({
-          filename: 'assets/index.html',
-          template: 'src/backend/views/index.html',
-      }),
-      new HtmlWebpackPlugin({
-          filename: 'assets/profile.hbs',
-          template: 'src/backend/views/profile.hbs',
-      })
+    new HtmlWebpackPlugin({
+      filename: 'registration.html',
+      template: 'src/backend/views/reg.html',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'src/backend/views/index.html',
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'profile.hbs',
+      template: 'src/backend/views/profile.hbs',
+    }),
   ],
 };

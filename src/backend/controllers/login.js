@@ -5,11 +5,11 @@ import cookieConfig from './config';
 export default (req, res) => {
   db.collection('users').findOne({ user_cookie: req.cookies[cookieConfig.cookieName] }).then((result) => {
     if (result) {
-      const html = fs.readFileSync('dist/assets/index.html');
+      const html = fs.readFileSync('dist/index.html');
       res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(html);
     } else {
-      const html = fs.readFileSync('dist/assets/login.html');
+      const html = fs.readFileSync('dist/login.html');
       res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(html);
     }

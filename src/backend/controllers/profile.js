@@ -18,7 +18,7 @@ export default (req, res) => {
         }
       });
     } else {
-      const html = fs.readFileSync('dist/assets/login.html');
+      const html = fs.readFileSync('dist/login.html');
       res.writeHead(200, { 'Content-Type': 'text/html' });
       res.end(html);
     }

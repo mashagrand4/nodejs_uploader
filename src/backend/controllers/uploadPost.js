@@ -42,7 +42,7 @@ export default (req, res) => {
       });
     }
   });
-  const html = fs.readFileSync('dist/assets/index.html');
+  const html = fs.readFileSync('dist/index.html');
   res.writeHead(200, { 'Content-Type': 'text/html' });
   res.end(html);
 };
