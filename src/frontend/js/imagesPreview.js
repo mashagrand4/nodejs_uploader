@@ -1,3 +1,6 @@
+import '../css/style.css';
+import '../css/form.css';
+
 let fileList = {};
 let filesArr = [];
 
