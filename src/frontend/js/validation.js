@@ -1,6 +1,6 @@
 import '../css/style.css';
 import '../css/form.css';
-import "../images/logo_big.png";
+import '../images/logo_big.png';
 
 window.onload = () => {
   const password = document.getElementById('password');
