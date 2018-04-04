@@ -1,13 +1,8 @@
 module.exports = {
     extends: "airbnb-base",
-    globals: {
-        "window": true,
-        "document": true,
-        "FileReader": true,
-        "Image": true,
-        "FormData": true,
-        "alert": true,
-        "XMLHttpRequest": true,
+    env: {
+        "browser": true,
+        "node": true,
     },
     rules: {
         "no-console": 0,

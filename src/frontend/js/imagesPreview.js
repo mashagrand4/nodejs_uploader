@@ -11,7 +11,7 @@ const isValidFile = fileItem => /\.(jpe?g|png|pdf)$/i.test(fileItem.name) && fil
 const readAndPreview = (fileItem) => {
   if (isValidFile(fileItem)) {
     const previewBlock = document.querySelector('#previews');
-    previewBlock.innerHTML += template({src: URL.createObjectURL(fileItem)});
+    previewBlock.innerHTML += template({ src: URL.createObjectURL(fileItem) });
   } else {
     alert('Image Size should not be greater than 5Mb and have a extension .jpeg/.png/.pdf');
   }
