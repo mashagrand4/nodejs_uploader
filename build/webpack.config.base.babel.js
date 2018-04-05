@@ -1,6 +1,7 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
+import NodemonPlugin from 'nodemon-webpack-plugin';
 
 export default {
   entry: {
@@ -61,5 +62,16 @@ export default {
       template: 'src/backend/views/profile.hbs',
     }),
     new CleanWebpackPlugin('dist'),
+    new NodemonPlugin({
+      watch: [
+        path.resolve('./src'),
+        path.resolve('./app.js'),
+      ],
+      script: './app.js',
+      execMap: {
+        js: 'babel-node',
+      },
+      legacyWatch: true,
+    }),
   ],
 };

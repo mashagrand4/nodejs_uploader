@@ -154,9 +154,9 @@ body{
     background-color: #514D52;
 }
 
-.wrap_images img {
+.previewWrap img {
     display: block;
-    max-width: 350px;
+    max-width: 100px;
     background-size: cover;
     padding: 10px;
 }
