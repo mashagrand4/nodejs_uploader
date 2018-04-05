@@ -4,9 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "deploy": "npm run build:dev && npx babel-node app.js",
+    "deploy:prod": "npm run build:prod && npx babel-node app.js",
+    "deploy:dev": "npm run build:dev",
     "build:prod": "webpack --config build/webpack.config.prod.babel.js",
-    "build:dev": "webpack --config build/webpack.config.dev.babel.js",
+    "build:dev": "webpack  --watch --config build/webpack.config.dev.babel.js",
     "start": "node app.js",
     "eslint": "eslint --ext .js src"
   },
@@ -30,13 +31,12 @@
     "source-map-support": "0.4.3"
   },
   "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.36",
     "@babel/core": "^7.0.0-beta.42",
     "@babel/node": "^7.0.0-beta.42",
     "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.42",
-    "babel-cli": "^6.26.0",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "@babel/preset-env": "^7.0.0-beta.39",
     "babel-preset-airbnb": "^2.4.0",
-    "babel-preset-env": "^2.0.0-alpha.20",
     "babel-preset-es2015": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^0.28.11",
@@ -48,8 +48,8 @@
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.15.0-rc.13",
+    "nodemon-webpack-plugin": "^0.1.6",
     "style-loader": "^0.20.3",
-    "uglifyjs-webpack-plugin": "^1.2.4",
     "webpack": "^4.3.0",
     "webpack-cli": "^2.0.13"
   },
