@@ -1,3 +1,4 @@
+import fp from 'find-free-port';
 import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
@@ -16,6 +17,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(router);
 
-const port = 3000;
-app.listen(port);
-console.log(`You can use http://localhost:${port}`);
+fp(3000, (err, freePort) => {
+  app.listen(freePort);
+  console.log(`You can use http://localhost:${freePort}`);
+});

@@ -13,7 +13,6 @@ export default {
     filename: 'js/[name].bundle.js',
     publicPath: 'dist',
   },
-  watch: true,
   module: {
     rules: [
       {
