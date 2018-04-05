@@ -119,14 +119,6 @@ body{
     background-color: #533566;
 }
 
-.btn-del {
-    position: absolute;
-    right: 0;
-    padding: 0 5px;
-    background-color: #76cdd7;
-    cursor: pointer;
-}
-
 .img-wrap {
     display: inline-block;
     position: relative;
@@ -154,10 +146,25 @@ body{
     background-color: #514D52;
 }
 
+.previewWrap {
+    display: inline-block;
+    margin: 10px;
+    position: relative;
+    width: 100px;
+}
+
+.btn-del {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 0 5px;
+    background-color: #76cdd7;
+    cursor: pointer;
+}
+
 .previewWrap img {
     display: block;
     max-width: 100px;
     background-size: cover;
-    padding: 10px;
 }
 
