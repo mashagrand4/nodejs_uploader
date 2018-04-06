@@ -1,5 +1,4 @@
-import '../css/style.css';
-import '../css/form.css';
+import '../scss/style.scss';
 import template from '../previewTemplate.hbs';
 
 let fileList = {};
@@ -29,38 +28,38 @@ const deleteImage = (event) => {
   updateFileList();
 };
 
-window.addEventListener('load',() => {
-    document.querySelector('#upload').addEventListener('click', (e) => {
-        e.preventDefault();
-        const formData = new FormData();
+window.addEventListener('load', () => {
+  document.querySelector('#upload').addEventListener('click', (e) => {
+    e.preventDefault();
+    const formData = new FormData();
 
-        if (fileList) {
-            for (let i = 0; i < Object.keys(fileList).length; i += 1) {
-                formData.append('files', fileList[i]);
-            }
-        }
-        const xhr = new XMLHttpRequest();
-        xhr.open('POST', '/upload', true);
-        xhr.send(formData);
+    if (fileList) {
+      for (let i = 0; i < Object.keys(fileList).length; i += 1) {
+        formData.append('files', fileList[i]);
+      }
+    }
+    const xhr = new XMLHttpRequest();
+    xhr.open('POST', '/upload', true);
+    xhr.send(formData);
 
-        fileList = {};
-        filesArr = [];
-        document.querySelector('#previews').innerHTML = '';
-    });
+    fileList = {};
+    filesArr = [];
+    document.querySelector('#previews').innerHTML = '';
+  });
 
-    document.querySelector('#previews').addEventListener('click', (e) => {
-        if (fileList) {
-            deleteImage(e);
-        }
-    });
+  document.querySelector('#previews').addEventListener('click', (e) => {
+    if (fileList) {
+      deleteImage(e);
+    }
+  });
 
-    document.querySelector('#file_add').addEventListener('change', (e) => {
-        e.preventDefault();
-        if (fileList) {
-            [].forEach.call(document.querySelector('input[type=file]').files, addPreview);
-        }
-        const tmpFileList = objToArr(document.querySelector('input[type=file]').files);
-        filesArr = filesArr.concat(tmpFileList);
-        updateFileList(filesArr);
-    });
+  document.querySelector('#file_add').addEventListener('change', (e) => {
+    e.preventDefault();
+    if (fileList) {
+      [].forEach.call(document.querySelector('input[type=file]').files, addPreview);
+    }
+    const tmpFileList = objToArr(document.querySelector('input[type=file]').files);
+    filesArr = filesArr.concat(tmpFileList);
+    updateFileList(filesArr);
+  });
 });

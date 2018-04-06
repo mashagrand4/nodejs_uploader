@@ -3,6 +3,7 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import NodemonPlugin from 'nodemon-webpack-plugin';
 
+
 export default {
   entry: {
     main: path.resolve(__dirname, '../src/frontend/js/imagesPreview.js'),
@@ -26,8 +27,8 @@ export default {
         },
       },
       {
-        test: /\.(css)$/,
-        use: ['style-loader', 'css-loader'],
+        test: /\.scss$/,
+        use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader?sourceMap'],
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -35,6 +36,16 @@ export default {
           loader: 'file-loader',
           options: {
             outputPath: 'images',
+          },
+        },
+      },
+      {
+        test: /\.woff2?$/,
+        use: {
+          loader: 'file-loader',
+          options: {
+            outputPath: 'fonts',
+            publicPath: 'dist/fonts/',
           },
         },
       },

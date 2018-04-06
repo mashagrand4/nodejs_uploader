@@ -1,0 +1,122 @@
+@import "~@salesforce-ux/design-system/scss/index.scss";
+
+.slds-form__custom-login {
+    width: 40%;
+    height: 40%;
+
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+.slds-form__custom-upload {
+    width: 40%;
+    height: 40%;
+
+    margin: auto;
+    padding: 10px;
+}
+
+.slds-form-element__control__custom-upload-button, .upload-field {
+    text-align: center;
+}
+
+.slds-input.slds-button_neutral {
+    width: 40%;
+}
+input[type="file"] {
+    display: none;
+}
+
+.slds-file_card_custom {
+    width: 15rem;
+    height: 9rem;
+    overflow: hidden;
+    display: inline-block;
+}
+
+//@mixin font-face($file-path, $style-name) {
+//    @font-face {
+//        font-family: "#{$style-name}";
+//        src: url($file-path);
+//    }
+//}
+//@include font-face(
+//    $file-path: "http://fonts.googleapis.com/css?family=Open+Sans",
+//    $style-name: "Open Sans"
+//);
+
+.slds-file-selector_files .slds-file-selector__body, .slds-file-selector--files .slds-file-selector__body {
+    justify-content: center;
+}
+
+.slds-file-selector__body {
+    height: 250px;
+    width: 300px;
+}
+
+//.button-block__exit-link {
+//    float: right;
+//
+//    display: inline-block;
+//    outline: none;
+//    text-decoration: none;
+//
+//    background-color: #ff5369;
+//    transition: background-color 0.5s;
+//    color: #efefef;
+//    padding: 5px;
+//    border-radius: 3px;
+//}
+//
+//.button-block__exit-link:hover {
+//    background-color: #99364c;
+//}
+//
+//.button-block__profile-link {
+//    display: inline-block;
+//    outline: none;
+//    text-decoration: none;
+//
+//    background-color: #9669ae;
+//    transition: background-color 0.5s;
+//    color: #efefef;
+//    padding: 5px;
+//    border-radius: 3px;
+//}
+//
+//.button-block__profile-link:hover {
+//    background-color: #533566;
+//}
+//
+//.images-block__image-wrap {
+//    display: inline-block;
+//    position: relative;
+//    margin: 5px;
+//    overflow: hidden;
+//
+//    width: 100px;
+//    height: 100px;
+//}
+//
+//.images-block__image-wrap img {
+//    min-width: 100px;
+//    min-height: 100px;
+//}
+//
+//.images-block {
+//    display: flex;
+//    flex-wrap: wrap;
+//    justify-content: center;
+//    align-items: center;
+//
+//    padding: 10px;
+//    border-radius: 2px;
+//    margin: 30px;
+//    background-color: #514d52;
+//}
+

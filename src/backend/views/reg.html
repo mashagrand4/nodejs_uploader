@@ -5,19 +5,35 @@
     <title>Register</title>
 </head>
 <body>
-    <div class="logo">
-        <img src="" alt="">
-    </div>
-    <div class="login-wrapper">
-        <form id="form" name="form" action='/reg' method="post">
-            <label id="user" for="name"></label>
-            <input autofocus type="text" name="name" id="name" placeholder="Username" required/>
-            <label id="pass" for="password"></label>
-            <input type="password" name="password" id="password" placeholder="Password" required />
-            <input type="password" name="password" id="confirm_password" placeholder="Repeat password" required />
-            <input type="submit" id="submit" name="submit" value="SIGN UP"/>
-        </form>
-        <a class="login-wrapper__link" href="/">Back to sign in</a>
-    </div>
+    <form id="form" name="form" action="/reg" method="post" class="slds-form slds-form_stacked">
+        <div class="slds-form-element">
+            <label id="user"  class="slds-form-element__label" for="name">
+                <abbr class="slds-required" title="required">*</abbr>Login</label>
+            <div class="slds-form-element__control">
+                <input  autofocus type="text" name="name" id="name" required="" class="slds-input" placeholder="Enter your login..." />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <label id="pass1" class="slds-form-element__label" for="password">
+                <abbr class="slds-required" title="required">*</abbr>Password</label>
+            <div class="slds-form-element__control">
+                <input type="password" name="password" id="password" required="" class="slds-input" placeholder="Enter your password..." />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <label id="pass2" class="slds-form-element__label" for="password">
+                <abbr class="slds-required" title="required">*</abbr>Confirm password</label>
+            <div class="slds-form-element__control">
+                <input type="password" name="password" id="confirm_password" required="" class="slds-input" placeholder="Confirm your password..." />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <input type="submit" id="submit" name="submit" class="slds-input slds-button_neutral" value="Sign up" />
+            </div>
+        </div>
+
+        <a href="/" class="slds-text-link">Back to sign in</a>
+    </form>
 </body>
 </html>

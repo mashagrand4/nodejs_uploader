@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "deploy:prod": "npm run build:prod && npx babel-node app.js",
-    "deploy:dev": "npm run build:dev",
+    "start": "npm run build:prod && npx babel-node app.js",
+    "dev": "npm run build:dev",
     "build:prod": "webpack --config build/webpack.config.prod.babel.js",
     "build:dev": "webpack  --watch --config build/webpack.config.dev.babel.js",
     "eslint": "eslint --ext .js src"
@@ -14,6 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "@babel/preset-env": "^7.0.0-beta.42",
+    "@salesforce-ux/design-system": "^2.5.2",
     "babel-loader": "^8.0.0-beta.2",
     "body-parser": "1.8",
     "cookie-parser": "^1.4.3",
@@ -44,13 +45,16 @@
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.10.0",
-    "extract-text-webpack-plugin": "v4.0.0-beta.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^1.1.11",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^0.15.0-rc.13",
+    "node-sass": "^4.8.3",
     "nodemon-webpack-plugin": "^0.1.6",
+    "resolve-url-loader": "^2.3.0",
+    "sass-loader": "^6.0.7",
     "style-loader": "^0.20.3",
-    "webpack": "^4.3.0",
+    "webpack": "^4.5.0",
     "webpack-cli": "^2.0.13"
   },
   "husky": {
