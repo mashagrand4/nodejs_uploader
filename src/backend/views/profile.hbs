@@ -5,11 +5,11 @@
     <title>Images uploader</title>
 </head>
 <body>
-    <div class="exit-wrap">
-        <a class='btn-exit' href="/logout">LOG OUT</a>
-        <a class='btn-prof' href="/upload">UPLOAD</a>
+    <div class="button-block">
+        <a class='button-block__exit-link' href="/logout">LOG OUT</a>
+        <a class='button-block__profile-link' href="/upload">UPLOAD</a>
     </div>
-    <div class="wrap_images">
+    <div class="images-block">
         {{#each paths}}
             <img src="{{ this }}" />
         {{/each }}
