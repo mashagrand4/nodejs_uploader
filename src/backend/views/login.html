@@ -5,18 +5,28 @@
     <title>Log in</title>
 </head>
 <body>
-    <div class="logo">
-        <img src="" alt="">
-    </div>
-    <div class="login-wrapper">
-        <form id="form" name="form" action="/log" method="post">
-            <label id="user" for="name"></label>
-            <input autofocus type="text" name="name" id="name" placeholder="Username" required/>
-            <label id="pass" for="password"></label>
-            <input type="password" name="password" id="password" placeholder="Password" required />
-            <input type="submit" id="submit" name="submit" value="SIGN IN"/>
-        </form>
-        <a class="login-wrapper__link" href="/reg">Register Now</a>
-    </div>
+    <form id="form" name="form" action="/log" method="post" class="slds-form slds-form_stacked slds-form__custom-login">
+        <div class="slds-form-element">
+            <label id="user"  class="slds-form-element__label" for="name">
+                <abbr class="slds-required" title="required">*</abbr>Login</label>
+            <div class="slds-form-element__control">
+                <input  autofocus type="text" name="name" id="name" required="" class="slds-input" placeholder="Enter your login..." />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <label id="pass" class="slds-form-element__label" for="password">
+                <abbr class="slds-required" title="required">*</abbr>Password</label>
+            <div class="slds-form-element__control">
+                <input type="password" name="password" id="password" required="" class="slds-input" placeholder="Enter your password..." />
+            </div>
+        </div>
+        <div class="slds-form-element">
+            <div class="slds-form-element__control">
+                <input type="submit" id="submit" name="submit" class="slds-input slds-button_neutral" value="Sign in" />
+            </div>
+        </div>
+
+        <a href="/reg" class="slds-text-link">Register Now</a>
+    </form>
 </body>
 </html>

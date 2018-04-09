@@ -5,23 +5,25 @@
     <title>Images uploader</title>
 </head>
 <body>
-    <div class="button-block">
-        <a class='button-block__exit-link' href="/logout">LOG OUT</a>
-        <a class='button-block__profile-link' href="/profile">PROFILE</a>
-    </div>
-    <div class="wrapper-block">
-        <div class="wrapper-block__upload-block">
-            <form class="wrapper-block__form" ref='uploadForm'
-                  id='uploadForm'
-                  action='/upload'
-                  method='POST'
-                  encType="multipart/form-data">
-                <label class="wrapper-block__label-adder" for="file_add">ADD IMAGES</label>
-                <input type="file" name="sampleFile" id="file_add" multiple>
-                <input class="wrapper-block__input-upload" id='upload' type='submit' value='UPLOAD' />
-            </form>
+    <form class="slds-form-element slds-form__custom-upload" ref='uploadForm' id='uploadForm' action='/upload' method='POST' encType="multipart/form-data" >
+        <div class="slds-form-element">
+            <div class="slds-form-element__control  slds-form-element__control__custom-upload-button">
+                <input type="submit" id="upload" name="submit" class="slds-input slds-button_neutral" value="UPLOAD" />
+            </div>
         </div>
-        <div class="wrapper-block__preview-block" id="previews"></div>
-    </div>
+        <div class="slds-form-element__control upload-field">
+            <div class="slds-file-selector slds-file-selector_files">
+                <div class="slds-file-selector__dropzone">
+                    <input type="file" class="slds-file-selector__input slds-assistive-text" accept="image/png" id="file_add" aria-labelledby="file-selector-primary-label file-selector-secondary-label" multiple/>
+                    <label class="slds-file-selector__body" for="file_add" id="file-selector-secondary-label">
+                        <span class="slds-file-selector__button slds-button slds-button_neutral">Add Files</span>
+                        <span class="slds-file-selector__text slds-medium-show">or Drop Files</span>
+                    </label>
+                    <span class="slds-medium-show">(to delete image click on it)</span>
+                </div>
+            </div>
+            <div id="previews"></div>
+        </div>
+    </form>
 </body>
 </html>
