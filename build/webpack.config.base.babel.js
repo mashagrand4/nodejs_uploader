@@ -2,7 +2,7 @@ import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import NodemonPlugin from 'nodemon-webpack-plugin';
-
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 export default {
   entry: {
@@ -28,7 +28,10 @@ export default {
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'resolve-url-loader', 'sass-loader?sourceMap'],
+        use: ExtractTextPlugin.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'resolve-url-loader', 'sass-loader?sourceMap'],
+        }),
       },
       {
         test: /\.(png|jpg|gif)$/,
@@ -72,7 +75,7 @@ export default {
       filename: 'profile.hbs',
       template: 'src/backend/views/profile.hbs',
     }),
-    new CleanWebpackPlugin('dist'),
+    new CleanWebpackPlugin('../dist'),
     new NodemonPlugin({
       watch: [
         path.resolve('./src'),
@@ -84,5 +87,6 @@ export default {
       },
       legacyWatch: true,
     }),
+    new ExtractTextPlugin('styles/styles.css'),
   ],
 };
