@@ -3,11 +3,15 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import NodemonPlugin from 'nodemon-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
+import npmPackage from '../aliases';
 
 export default {
   entry: {
     main: path.resolve(__dirname, '../src/frontend/js/imagesPreview.js'),
     login: path.resolve(__dirname, '../src/frontend/js/validation.js'),
+  },
+  resolve: {
+    alias: npmPackage || {},
   },
   output: {
     path: path.resolve(__dirname, '../dist'),
