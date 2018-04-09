@@ -1,5 +1,5 @@
-import '../scss/style.scss';
-import template from '../previewTemplate.hbs';
+import '@frontend/scss/style.scss';
+import template from '@frontend/previewTemplate.hbs';
 
 let fileList = {};
 let filesArr = [];
