@@ -1,7 +1,7 @@
 import mongoose from 'mongoose';
 import userData from './config';
 
-mongoose.connect(`mongodb://${userData.username}:${userData.password}@ds253468.mlab.com:53468/mydb`);
+mongoose.connect(`mongodb://${userData.username}:${userData.password}@${userData.host}:${userData.port}/${userData.database}`);
 
 const db = mongoose.connection;
 

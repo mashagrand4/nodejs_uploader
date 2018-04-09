@@ -3,7 +3,6 @@ import HtmlWebpackPlugin from 'html-webpack-plugin';
 import CleanWebpackPlugin from 'clean-webpack-plugin';
 import NodemonPlugin from 'nodemon-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
-import npmPackage from '../aliases';
 
 export default {
   entry: {
@@ -11,7 +10,10 @@ export default {
     login: path.resolve(__dirname, '../src/frontend/js/validation.js'),
   },
   resolve: {
-    alias: npmPackage || {},
+    alias: {
+      '@root': path.resolve(__dirname, '.'),
+      '@frontend': path.resolve(__dirname, 'src/frontend'),
+    },
   },
   output: {
     path: path.resolve(__dirname, '../dist'),

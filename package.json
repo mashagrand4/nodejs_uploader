@@ -64,9 +64,7 @@
     }
   },
   "_moduleAliases": {
-    "@root": ".",
     "@pages": "src/backend/views",
-    "@frontend": "src/frontend",
     "@backend": "src/backend"
   }
 }
