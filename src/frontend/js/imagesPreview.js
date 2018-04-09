@@ -1,10 +1,16 @@
 import '@frontend/scss/style.scss';
 import template from '@frontend/previewTemplate.hbs';
+import Validator from './Validator';
+
+console.log(Validator);
 
 let fileList = {};
 let filesArr = [];
 
-const isValidFile = fileItem => /\.(jpe?g|png|pdf)$/i.test(fileItem.name) && fileItem.size < 5242880;
+const isValidFile = fileItem =>
+  Validator.regexp(fileItem.name, /\.(jpe?g|png|pdf)$/i) &&
+  Validator.range(fileItem.size) &&
+  Validator.type(fileItem, ['image/jpeg', 'image/png', 'application/pdf']);
 
 const addPreview = (fileItem) => {
   if (isValidFile(fileItem)) {
