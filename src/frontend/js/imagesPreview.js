@@ -1,23 +1,36 @@
-import '@frontend/scss/style.scss';
-import template from '@frontend/previewTemplate.hbs';
+import '../scss/style.scss';
+import template from '../previewTemplate.hbs';
 import Validator from './Validator';
 
-console.log(Validator);
+const errors = new Validator();
 
 let fileList = {};
 let filesArr = [];
 
-const isValidFile = fileItem =>
-  Validator.regexp(fileItem.name, /\.(jpe?g|png|pdf)$/i) &&
-  Validator.range(fileItem.size) &&
-  Validator.type(fileItem, ['image/jpeg', 'image/png', 'application/pdf']);
+const isValidFile = (fileItem) => {
+  if (!Validator.regexp(fileItem.name, /\.(jpe?g|png|pdf)$/i) || !Validator.type(fileItem, ['image/jpeg', 'image/png', 'application/pdf'])) {
+    errors.errors.push({
+      fileName: fileItem.name,
+      error: 'Error type: extension can be only jpeg|png|pdf!',
+    });
+    return false;
+  }
+  if (!Validator.range(fileItem.size)) {
+    errors.errors.push({
+      fileName: fileItem.name,
+      error: 'Error size: image should be equal or less then 5mb',
+    });
+    return false;
+  }
+  return true;
+};
 
 const addPreview = (fileItem) => {
   if (isValidFile(fileItem)) {
     const previewBlock = document.querySelector('#previews');
     previewBlock.innerHTML += template({ src: URL.createObjectURL(fileItem) });
   } else {
-    alert('Image Size should not be greater than 5Mb and have a extension .jpeg/.png/.pdf');
+    alert(errors.errors[0].fileName + errors.errors[0].error);
   }
 };
 

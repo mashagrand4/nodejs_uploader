@@ -1,4 +1,8 @@
 export default class Validator {
+  constructor() {
+    this.errors = [];
+  }
+
   /**
    * @description Validates file name based on given regular expression
    * @param {string} str to validate
@@ -14,7 +18,7 @@ export default class Validator {
 
   /**
    * @description Validates file size based on given max size
-   * @param {File} file
+   * @param {File} value
    * @param {number} min min file size (default 0)
    * @param {number} max max file size default (5 mb)
    * @returns {boolean}

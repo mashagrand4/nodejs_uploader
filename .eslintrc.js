@@ -1,3 +1,5 @@
+var path = require('path');
+
 module.exports = {
     extends: "airbnb-base",
     env: {
@@ -8,7 +10,22 @@ module.exports = {
         "no-console": 0,
         "no-alert": 0,
         'prefer-destructuring': 0,
-        "import/no-unresolved": "off",
         "import/extensions": ["error", "never", { "scss": "always", "hbs": "always",  }],
+        "import/no-extraneous-dependencies": "off",
+        "import/no-unresolved": ["error"],
+
+    },
+    settings: {
+        'import/resolver': {
+            webpack: {
+                config : 'build/webpack.config.dev.babel.js',
+            },
+            alias: [
+                    ['@root', path.resolve(__dirname, '.')],
+                    ['@frontend', path.resolve(__dirname, 'src/frontend')],
+                    ["@pages", path.resolve(__dirname, 'src/backend/views')],
+                    ["@backend", path.resolve(__dirname, 'src/backend')],
+                ],
+        },
     },
 };
