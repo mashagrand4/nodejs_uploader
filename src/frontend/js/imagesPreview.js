@@ -1,11 +1,19 @@
 import '../scss/style.scss';
 import template from '../previewTemplate.hbs';
 import Validator from './Validator';
+import './modal-manager';
 
 const errors = new Validator();
 
 let fileList = {};
 let filesArr = [];
+
+const btn = document.getElementById('myBtn');
+const modal = document.getElementById('myModal');
+
+btn.addEventListener('click', () => {
+    modal.style.display = 'block';
+});
 
 const isValidFile = (fileItem) => {
   if (!Validator.regexp(fileItem.name, /\.(jpe?g|png|pdf)$/i) || !Validator.type(fileItem, ['image/jpeg', 'image/png', 'application/pdf'])) {
@@ -30,6 +38,7 @@ const addPreview = (fileItem) => {
     const previewBlock = document.querySelector('#previews');
     previewBlock.innerHTML += template({ src: URL.createObjectURL(fileItem) });
   } else {
+      btn.click();
     alert(errors.errors[0].fileName + errors.errors[0].error);
   }
 };
