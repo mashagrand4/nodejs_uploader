@@ -62,7 +62,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npm run eslint"
+      "pre-commit": "npx eslint . --fix && npm run eslint"
     }
   },
   "_moduleAliases": {

@@ -14,7 +14,7 @@ btn.addEventListener('click', () => {
 });
 
 const addToUploadArr = (fileItem) => {
-    filesArr.push(fileItem);
+  filesArr.push(fileItem);
 };
 
 const isValidFile = (fileItem) => {
@@ -40,8 +40,8 @@ const addPreview = (fileItem) => {
     addToUploadArr(fileItem);
     const previewBlock = document.querySelector('#previews');
     previewBlock.innerHTML += template({
-        src: URL.createObjectURL(fileItem),
-        id: fileItem.name
+      src: URL.createObjectURL(fileItem),
+      id: fileItem.name,
     });
   } else {
     btn.click();
@@ -49,9 +49,7 @@ const addPreview = (fileItem) => {
   }
 };
 
-const createFileListToUpload = () => {
-  return Object.assign({}, filesArr);
-};
+const createFileListToUpload = () => Object.assign({}, filesArr);
 
 const deleteImage = (event) => {
   filesArr = filesArr.filter(file => file.name !== event.target.parentNode.dataset.id);
@@ -59,15 +57,14 @@ const deleteImage = (event) => {
 };
 
 window.addEventListener('load', () => {
-
   document.querySelector('#file_add').addEventListener('change', (e) => {
     e.preventDefault();
     [].forEach.call(document.querySelector('input[type=file]').files, addPreview);
   });
 
-    document.querySelector('#previews').addEventListener('click', (e) => {
-      deleteImage(e);
-    });
+  document.querySelector('#previews').addEventListener('click', (e) => {
+    deleteImage(e);
+  });
 
   document.querySelector('#upload').addEventListener('click', (e) => {
     e.preventDefault();
@@ -87,5 +84,4 @@ window.addEventListener('load', () => {
     filesArr = [];
     document.querySelector('#previews').innerHTML = '';
   });
-
 });
