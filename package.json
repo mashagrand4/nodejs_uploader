@@ -62,7 +62,7 @@
   },
   "husky": {
     "hooks": {
-      "pre-push": "npm run eslint"
+      "pre-commit": "npm run eslint"
     }
   },
   "_moduleAliases": {
