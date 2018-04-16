@@ -3,28 +3,30 @@ import template from '../previewTemplate.hbs';
 import Validator from './Validator';
 import './modal-manager';
 
-const errors = new Validator();
-
-let fileList = {};
+const errorsArr = new Validator();
 let filesArr = [];
 
 const btn = document.getElementById('myBtn');
 const modal = document.getElementById('myModal');
 
 btn.addEventListener('click', () => {
-    modal.style.display = 'block';
+  modal.style.display = 'block';
 });
+
+const addToUploadArr = (fileItem) => {
+    filesArr.push(fileItem);
+};
 
 const isValidFile = (fileItem) => {
   if (!Validator.regexp(fileItem.name, /\.(jpe?g|png|pdf)$/i) || !Validator.type(fileItem, ['image/jpeg', 'image/png', 'application/pdf'])) {
-    errors.errors.push({
+    errorsArr.errors.push({
       fileName: fileItem.name,
       error: 'Error type: extension can be only jpeg|png|pdf!',
     });
     return false;
   }
   if (!Validator.range(fileItem.size)) {
-    errors.errors.push({
+    errorsArr.errors.push({
       fileName: fileItem.name,
       error: 'Error size: image should be equal or less then 5mb',
     });
@@ -35,30 +37,42 @@ const isValidFile = (fileItem) => {
 
 const addPreview = (fileItem) => {
   if (isValidFile(fileItem)) {
+    addToUploadArr(fileItem);
     const previewBlock = document.querySelector('#previews');
-    previewBlock.innerHTML += template({ src: URL.createObjectURL(fileItem) });
+    previewBlock.innerHTML += template({
+        src: URL.createObjectURL(fileItem),
+        id: fileItem.name
+    });
   } else {
-      btn.click();
-    alert(errors.errors[0].fileName + errors.errors[0].error);
+    btn.click();
+    alert(errorsArr.errors[0].fileName + errorsArr.errors[0].error);
   }
 };
 
-const objToArr = obj => Array.from(obj);
-
-const updateFileList = () => {
-  fileList = Object.assign({}, filesArr);
+const createFileListToUpload = () => {
+  return Object.assign({}, filesArr);
 };
 
 const deleteImage = (event) => {
-  objToArr(fileList);
-  filesArr = filesArr.filter(fileItem => fileItem.name !== event.target.parentNode.dataset.nameImg);
+  filesArr = filesArr.filter(file => file.name !== event.target.parentNode.dataset.id);
   event.target.parentNode.parentNode.removeChild(event.target.parentNode);
-  updateFileList();
 };
 
 window.addEventListener('load', () => {
+
+  document.querySelector('#file_add').addEventListener('change', (e) => {
+    e.preventDefault();
+    [].forEach.call(document.querySelector('input[type=file]').files, addPreview);
+  });
+
+    document.querySelector('#previews').addEventListener('click', (e) => {
+      deleteImage(e);
+    });
+
   document.querySelector('#upload').addEventListener('click', (e) => {
     e.preventDefault();
+
+    const fileList = createFileListToUpload(filesArr);
     const formData = new FormData();
 
     if (fileList) {
@@ -70,24 +84,8 @@ window.addEventListener('load', () => {
     xhr.open('POST', '/upload', true);
     xhr.send(formData);
 
-    fileList = {};
     filesArr = [];
     document.querySelector('#previews').innerHTML = '';
   });
 
-  document.querySelector('#previews').addEventListener('click', (e) => {
-    if (fileList) {
-      deleteImage(e);
-    }
-  });
-
-  document.querySelector('#file_add').addEventListener('change', (e) => {
-    e.preventDefault();
-    if (fileList) {
-      [].forEach.call(document.querySelector('input[type=file]').files, addPreview);
-    }
-    const tmpFileList = objToArr(document.querySelector('input[type=file]').files);
-    filesArr = filesArr.concat(tmpFileList);
-    updateFileList(filesArr);
-  });
 });
