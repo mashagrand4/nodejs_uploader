@@ -159,7 +159,10 @@ input[type="file"] {
     color: white;
 }
 
-.modal-body {padding: 2px 16px;}
+.modal-body {
+    padding: 4px 23px;
+    margin: 25px 10px;
+}
 
 .modal-footer {
     padding: 2px 16px;

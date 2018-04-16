@@ -1,5 +1,6 @@
 import '../scss/style.scss';
 import template from '../previewTemplate.hbs';
+import wrongTemplate from '../modalWindowTemplate.hbs';
 import Validator from './Validator';
 import './modal-manager';
 
@@ -44,8 +45,12 @@ const addPreview = (fileItem) => {
       id: fileItem.name,
     });
   } else {
+      const wrongImages = document.querySelector('#wrongImages');
+      wrongImages.innerHTML += wrongTemplate({
+          src: URL.createObjectURL(fileItem),
+          errorMessage: errorsArr.errors[0].error,
+      });
     btn.click();
-    alert(errorsArr.errors[0].fileName + errorsArr.errors[0].error);
   }
 };
 
