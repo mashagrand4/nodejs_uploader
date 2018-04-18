@@ -5,6 +5,7 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import handlebars from 'handlebars-engine';
 import router from '@/router/routes';
+import process from 'process';
 
 const app = express();
 
@@ -18,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(router);
 
-fp(3000, (err, freePort) => {
+fp(process.env.PORT, (err, freePort) => {
   app.listen(freePort);
   console.log(`You can use http://localhost:${freePort}`);
 });

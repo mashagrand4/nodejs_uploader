@@ -41,7 +41,7 @@ const addPreview = (fileItem) => {
       id: fileItem.name,
     });
   } else {
-      console.log(errorsArr);
+    console.log(errorsArr);
     errorBlock.innerHTML += wrongTemplate({
       fileName: fileItem.name,
       errorMessage: errorsArr.errors.filter(error => error.fileName === fileItem.name),
@@ -82,11 +82,11 @@ window.addEventListener('load', () => {
       filesArr = [];
       document.querySelector('#previews').innerHTML = '';
     } else {
-        const warning = document.getElementById('warning');
-        warning.innerHTML = '<p class="warning">You need add at least one image! :)</p>';
-        setTimeout(() => {
-            warning.innerHTML = '';
-        }, 2000);
+      const warning = document.getElementById('warning');
+      warning.innerHTML = '<p class="warning">You need add at least one image! :)</p>';
+      setTimeout(() => {
+        warning.innerHTML = '';
+      }, 2000);
     }
   });
 });

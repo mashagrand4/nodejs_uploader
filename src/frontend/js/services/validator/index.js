@@ -4,7 +4,7 @@ export default class Validator {
   }
 
   clear() {
-      this.errors = [];
+    this.errors = [];
   }
 
   /**
