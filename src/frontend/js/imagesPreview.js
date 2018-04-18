@@ -1,18 +1,11 @@
 import '../scss/style.scss';
-import template from '../previewTemplate.hbs';
-import wrongTemplate from '../modalWindowTemplate.hbs';
+import template from '../templates/previewTemplate.hbs';
+import wrongTemplate from '../templates/errorWindowTemplate.hbs';
 import Validator from './services/validator';
-import './modal-manager';
+import errorBlock from './error-window';
 
 const errorsArr = new Validator();
 let filesArr = [];
-
-const btn = document.getElementById('myBtn');
-const modal = document.getElementById('myModal');
-
-btn.addEventListener('click', () => {
-  modal.style.display = 'block';
-});
 
 const addToUploadArr = (fileItem) => {
   filesArr.push(fileItem);
@@ -48,16 +41,13 @@ const addPreview = (fileItem) => {
       id: fileItem.name,
     });
   } else {
-    const wrongImages = document.querySelector('#wrongImages');
-    wrongImages.innerHTML += wrongTemplate({
-      src: URL.createObjectURL(fileItem),
-      errorMessage: errorsArr.errors[0].error,
+      console.log(errorsArr);
+    errorBlock.innerHTML += wrongTemplate({
+      fileName: fileItem.name,
+      errorMessage: errorsArr.errors.filter(error => error.fileName === fileItem.name),
     });
-    btn.click();
   }
 };
-
-const createFileListToUpload = () => Object.assign({}, filesArr);
 
 const deleteImage = (event) => {
   filesArr = filesArr.filter(file => file.name !== event.target.parentNode.dataset.id);
@@ -68,6 +58,7 @@ window.addEventListener('load', () => {
   document.querySelector('#file_add').addEventListener('change', (e) => {
     e.preventDefault();
     [].forEach.call(document.querySelector('input[type=file]').files, addPreview);
+    errorsArr.clear();
   });
 
   document.querySelector('#previews').addEventListener('click', (e) => {
@@ -77,19 +68,25 @@ window.addEventListener('load', () => {
   document.querySelector('#upload').addEventListener('click', (e) => {
     e.preventDefault();
 
-    const fileList = createFileListToUpload(filesArr);
-    const formData = new FormData();
+    if (filesArr.length > 0) {
+      const formData = new FormData();
 
-    if (fileList) {
-      for (let i = 0; i < Object.keys(fileList).length; i += 1) {
-        formData.append('files', fileList[i]);
+      for (let i = 0; i < filesArr.length; i += 1) {
+        formData.append('files', filesArr[i]);
       }
-    }
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/upload', true);
-    xhr.send(formData);
 
-    filesArr = [];
-    document.querySelector('#previews').innerHTML = '';
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/upload', true);
+      xhr.send(formData);
+
+      filesArr = [];
+      document.querySelector('#previews').innerHTML = '';
+    } else {
+        const warning = document.getElementById('warning');
+        warning.innerHTML = '<p class="warning">You need add at least one image! :)</p>';
+        setTimeout(() => {
+            warning.innerHTML = '';
+        }, 2000);
+    }
   });
 });

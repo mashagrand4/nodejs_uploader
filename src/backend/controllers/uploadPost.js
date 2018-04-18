@@ -8,15 +8,15 @@ export default (req, res) => {
   const form = new formidable.IncomingForm();
   form.multiples = true;
   form.parse(req, (err, fields, files) => {
-    console.log(files);
-    const userTable = User.findOne({ user_cookie: req.cookies[cookieConfig.cookieName] });
-    if (files.sampleFile.length > 1) {
-      for (let i = 0; i < files.sampleFile.length; i += 1) {
-        const newpath = `${__dirname}../../../../${files.sampleFile[i].name}`;
-        const { name } = files.sampleFile[i].name;
-        const old = files.sampleFile[i].path;
+    const userTable = User.find({ user_cookie: req.cookies[cookieConfig.cookieName] });
+    if (files.files instanceof Array) {
+      for (let i = 0; i < files.files.length; i += 1) {
+        const newpath = `${__dirname}../../../../${files.files[i].name}`;
+        const { name } = files.files[i].name;
+        const old = files.files[i].path;
         fs.rename(old, newpath, () => {
           if (err) throw err;
+          console.log(userTable);
           userTable.exec((user) => {
             const image = new Images({ path: name });
             image.save(() => {
