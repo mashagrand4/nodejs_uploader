@@ -1,7 +1,7 @@
 import '../scss/style.scss';
 import template from '../previewTemplate.hbs';
 import wrongTemplate from '../modalWindowTemplate.hbs';
-import Validator from './Validator';
+import Validator from './services/validator';
 import './modal-manager';
 
 const errorsArr = new Validator();
@@ -19,7 +19,10 @@ const addToUploadArr = (fileItem) => {
 };
 
 const isValidFile = (fileItem) => {
-  if (!Validator.regexp(fileItem.name, /\.(jpe?g|png|pdf)$/i) || !Validator.type(fileItem, ['image/jpeg', 'image/png', 'application/pdf'])) {
+  if (
+    !Validator.regexp(fileItem.name, /\.(jpe?g|png|pdf)$/i) ||
+    !Validator.type(fileItem, ['image/jpeg', 'image/png', 'application/pdf'])
+  ) {
     errorsArr.errors.push({
       fileName: fileItem.name,
       error: 'Error type: extension can be only jpeg|png|pdf!',
@@ -45,11 +48,11 @@ const addPreview = (fileItem) => {
       id: fileItem.name,
     });
   } else {
-      const wrongImages = document.querySelector('#wrongImages');
-      wrongImages.innerHTML += wrongTemplate({
-          src: URL.createObjectURL(fileItem),
-          errorMessage: errorsArr.errors[0].error,
-      });
+    const wrongImages = document.querySelector('#wrongImages');
+    wrongImages.innerHTML += wrongTemplate({
+      src: URL.createObjectURL(fileItem),
+      errorMessage: errorsArr.errors[0].error,
+    });
     btn.click();
   }
 };
