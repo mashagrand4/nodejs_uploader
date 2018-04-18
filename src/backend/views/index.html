@@ -14,6 +14,7 @@
         <div class="slds-form-element__control upload-field">
             <div class="slds-file-selector slds-file-selector_files">
                 <div class="slds-file-selector__dropzone">
+                    <div id="warning"></div>
                     <input type="file" class="slds-file-selector__input slds-assistive-text" id="file_add" aria-labelledby="file-selector-primary-label file-selector-secondary-label" multiple/>
                     <label class="slds-file-selector__body" for="file_add" id="file-selector-secondary-label">
                         <span class="slds-file-selector__button slds-button slds-button_neutral">Add Files</span>
@@ -26,22 +27,8 @@
         </div>
     </form>
 
-    <button style="display: none" id="myBtn">Open Modal</button>
+    <div class="errors-block" id="errors-block"></div>
 
-    <div id="myModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <span class="close">&times;</span>
-                <h2>Wrong files</h2>
-            </div>
-            <div class="modal-body slds-file slds-file_card slds-file_card_custom" id="wrongImages">
-
-            </div>
-            <div class="modal-footer">
-                <h3>Modal Footer</h3>
-            </div>
-        </div>
-    </div>
 
 </body>
 </html>

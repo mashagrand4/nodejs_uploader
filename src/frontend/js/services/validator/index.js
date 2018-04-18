@@ -3,6 +3,10 @@ export default class Validator {
     this.errors = [];
   }
 
+  clear() {
+      this.errors = [];
+  }
+
   /**
    * @description Validates file name based on given regular expression
    * @param {string} str to validate
