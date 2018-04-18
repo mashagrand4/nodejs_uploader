@@ -57,7 +57,6 @@ const addPreview = (fileItem) => {
   }
 };
 
-const createFileListToUpload = () => Object.assign({}, filesArr);
 
 const deleteImage = (event) => {
   filesArr = filesArr.filter(file => file.name !== event.target.parentNode.dataset.id);
@@ -77,19 +76,24 @@ window.addEventListener('load', () => {
   document.querySelector('#upload').addEventListener('click', (e) => {
     e.preventDefault();
 
-    const fileList = createFileListToUpload(filesArr);
-    const formData = new FormData();
+    console.log(filesArr);
+    console.log(filesArr.length);
 
-    if (fileList) {
-      for (let i = 0; i < Object.keys(fileList).length; i += 1) {
-        formData.append('files', fileList[i]);
+    if (filesArr.length > 0) {
+      const formData = new FormData();
+
+      for (let i = 0; i < filesArr.length; i += 1) {
+        formData.append('files', filesArr[i]);
       }
-    }
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', '/upload', true);
-    xhr.send(formData);
 
-    filesArr = [];
-    document.querySelector('#previews').innerHTML = '';
+      const xhr = new XMLHttpRequest();
+      xhr.open('POST', '/upload', true);
+      xhr.send(formData);
+
+      filesArr = [];
+      document.querySelector('#previews').innerHTML = '';
+    } else {
+      alert('You need add at least one image! :)');
+    }
   });
 });
