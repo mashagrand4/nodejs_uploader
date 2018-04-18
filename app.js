@@ -4,12 +4,12 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import handlebars from 'handlebars-engine';
-import router from '@backend/router/routes';
+import router from '@/router/routes';
 
 const app = express();
 
 app.engine('hbs', handlebars);
-app.set('views', `${__dirname}@backend/views`);
+app.set('views', `${__dirname}src/backend/views`);
 app.set('view engine', 'hbs');
 
 app.use(express.static(`${__dirname}/`));
