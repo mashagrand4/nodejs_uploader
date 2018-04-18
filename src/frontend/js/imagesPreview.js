@@ -82,7 +82,11 @@ window.addEventListener('load', () => {
       filesArr = [];
       document.querySelector('#previews').innerHTML = '';
     } else {
-      alert('You need add at least one image! :)');
+        const warning = document.getElementById('warning');
+        warning.innerHTML = '<p class="warning">You need add at least one image! :)</p>';
+        setTimeout(() => {
+            warning.innerHTML = '';
+        }, 2000);
     }
   });
 });

@@ -80,6 +80,14 @@ input[type="file"] {
     padding: 0;
 }
 
+.warning {
+    display: inline-block;
+    background-color: #ffcc00;
+    padding: 0.2rem 0.8rem;
+    border-radius: 0.2rem;
+}
+
+
 //.button-block__exit-link {
 //    float: right;
 //
