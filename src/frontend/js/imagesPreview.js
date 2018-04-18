@@ -41,11 +41,11 @@ const addPreview = (fileItem) => {
       id: fileItem.name,
     });
   } else {
-      console.log(errorsArr.errors.filter(error => error.fileName === fileItem.name));
-      errorBlock.innerHTML += wrongTemplate({
-          fileName: fileItem.name,
-          errorMessage: errorsArr.errors.filter(error => error.fileName === fileItem.name),
-      });
+      console.log(errorsArr);
+    errorBlock.innerHTML += wrongTemplate({
+      fileName: fileItem.name,
+      errorMessage: errorsArr.errors.filter(error => error.fileName === fileItem.name),
+    });
   }
 };
 
@@ -58,6 +58,7 @@ window.addEventListener('load', () => {
   document.querySelector('#file_add').addEventListener('change', (e) => {
     e.preventDefault();
     [].forEach.call(document.querySelector('input[type=file]').files, addPreview);
+    errorsArr.clear();
   });
 
   document.querySelector('#previews').addEventListener('click', (e) => {
@@ -66,9 +67,6 @@ window.addEventListener('load', () => {
 
   document.querySelector('#upload').addEventListener('click', (e) => {
     e.preventDefault();
-
-    console.log(filesArr);
-    console.log(filesArr.length);
 
     if (filesArr.length > 0) {
       const formData = new FormData();
