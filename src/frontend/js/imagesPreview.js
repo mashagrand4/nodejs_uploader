@@ -1,18 +1,11 @@
 import '../scss/style.scss';
-import template from '../previewTemplate.hbs';
-import wrongTemplate from '../modalWindowTemplate.hbs';
+import template from '../templates/previewTemplate.hbs';
+import wrongTemplate from '../templates/errorWindowTemplate.hbs';
 import Validator from './services/validator';
-import './modal-manager';
+import errorBlock from './error-window';
 
 const errorsArr = new Validator();
 let filesArr = [];
-
-const btn = document.getElementById('myBtn');
-const modal = document.getElementById('myModal');
-
-btn.addEventListener('click', () => {
-  modal.style.display = 'block';
-});
 
 const addToUploadArr = (fileItem) => {
   filesArr.push(fileItem);
@@ -48,15 +41,13 @@ const addPreview = (fileItem) => {
       id: fileItem.name,
     });
   } else {
-    const wrongImages = document.querySelector('#wrongImages');
-    wrongImages.innerHTML += wrongTemplate({
-      src: URL.createObjectURL(fileItem),
-      errorMessage: errorsArr.errors[0].error,
-    });
-    btn.click();
+      console.log(errorsArr.errors.filter(error => error.fileName === fileItem.name));
+      errorBlock.innerHTML += wrongTemplate({
+          fileName: fileItem.name,
+          errorMessage: errorsArr.errors.filter(error => error.fileName === fileItem.name),
+      });
   }
 };
-
 
 const deleteImage = (event) => {
   filesArr = filesArr.filter(file => file.name !== event.target.parentNode.dataset.id);

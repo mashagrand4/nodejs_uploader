@@ -28,6 +28,12 @@
 .slds-input.slds-button_neutral {
     width: 40%;
 }
+
+
+.slds-input.slds-button_neutral.entry-button {
+    width: 100%;
+}
+
 input[type="file"] {
     display: none;
 }
@@ -46,6 +52,32 @@ input[type="file"] {
 .slds-file-selector__body {
     height: 250px;
     width: 300px;
+}
+
+.errors-block {
+    top: 0;
+    position: absolute;
+}
+
+.error-message {
+    background-color: #FFCCCC;
+    padding: 2px 10px 20px 20px;
+    margin-bottom: 0.5rem;
+    border-radius: 0.2rem;
+}
+
+.error-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+
+    border-bottom: 1px solid #8c92ac;
+    margin-bottom: 20px;
+}
+
+.error-close {
+    color: #444;
+    padding: 0;
 }
 
 //.button-block__exit-link {
@@ -109,88 +141,3 @@ input[type="file"] {
 //    background-color: #514d52;
 //}
 
-.slds-input.slds-button_neutral.entry-button {
-    width: 100%;
-}
-
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-    -webkit-animation-name: fadeIn; /* Fade in the background */
-    -webkit-animation-duration: 0.4s;
-    animation-name: fadeIn;
-    animation-duration: 0.4s
-}
-
-/* Modal Content */
-.modal-content {
-    position: fixed;
-    bottom: 0;
-    background-color: #fefefe;
-    width: 100%;
-    -webkit-animation-name: slideIn;
-    -webkit-animation-duration: 0.4s;
-    animation-name: slideIn;
-    animation-duration: 0.4s
-}
-
-/* The Close Button */
-.close {
-    color: white;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: #000;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-.modal-header {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-.modal-body {
-    padding: 4px 23px;
-    margin: 25px 10px;
-}
-
-.modal-footer {
-    padding: 2px 16px;
-    background-color: #5cb85c;
-    color: white;
-}
-
-/* Add Animation */
-@-webkit-keyframes slideIn {
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 0; opacity: 1}
-}
-
-@keyframes slideIn {
-    from {bottom: -300px; opacity: 0}
-    to {bottom: 0; opacity: 1}
-}
-
-@-webkit-keyframes fadeIn {
-    from {opacity: 0}
-    to {opacity: 1}
-}
-
-@keyframes fadeIn {
-    from {opacity: 0}
-    to {opacity: 1}
-}
