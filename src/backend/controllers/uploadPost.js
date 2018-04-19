@@ -32,10 +32,10 @@ export default (req, res) => {
       fs.rename(old, newpath, () => {
         if (err) throw err;
         userTable.exec((error, user) => {
-            const image = new Images({ path: name });
-            image.save(() => {
-                user[0].images.push(image);
-                user[0].save(() => {});
+          const image = new Images({ path: name });
+          image.save(() => {
+            user[0].images.push(image);
+            user[0].save(() => {});
           });
         });
       });
