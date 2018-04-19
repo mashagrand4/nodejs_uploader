@@ -12,16 +12,15 @@ export default (req, res) => {
     if (files.files instanceof Array) {
       for (let i = 0; i < files.files.length; i += 1) {
         const newpath = `${__dirname}../../../../${files.files[i].name}`;
-        const { name } = files.files[i].name;
+        const name = files.files[i].name;
         const old = files.files[i].path;
         fs.rename(old, newpath, () => {
           if (err) throw err;
-          console.log(userTable);
-          userTable.exec((user) => {
+          userTable.exec((error, user) => {
             const image = new Images({ path: name });
             image.save(() => {
-              user.images.push(image);
-              user.save(() => {});
+              user[0].images.push(image);
+              user[0].save(() => {});
             });
           });
         });
@@ -32,11 +31,11 @@ export default (req, res) => {
       const old = files.files.path;
       fs.rename(old, newpath, () => {
         if (err) throw err;
-        userTable.exec((user) => {
-          const image = new Images({ path: name });
-          image.save(() => {
-            user.images.push(image);
-            user.save();
+        userTable.exec((error, user) => {
+            const image = new Images({ path: name });
+            image.save(() => {
+                user[0].images.push(image);
+                user[0].save(() => {});
           });
         });
       });

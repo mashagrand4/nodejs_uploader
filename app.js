@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(router);
 
-fp(process.env.PORT, (err, freePort) => {
+fp(process.env.PORT || 3000, (err, freePort) => {
   app.listen(freePort);
   console.log(`You can use http://localhost:${freePort}`);
 });
