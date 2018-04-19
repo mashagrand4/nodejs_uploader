@@ -6,11 +6,12 @@ import cookieParser from 'cookie-parser';
 import handlebars from 'handlebars-engine';
 import router from '@/router/routes';
 import process from 'process';
+import path from 'path';
 
 const app = express();
 
 app.engine('hbs', handlebars);
-app.set('views', `${__dirname}src/backend/views`);
+app.set('views', path.resolve(__dirname, 'src', 'backend', 'views'));
 app.set('view engine', 'hbs');
 
 app.use(express.static(`${__dirname}/`));

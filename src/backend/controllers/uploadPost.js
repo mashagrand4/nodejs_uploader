@@ -11,7 +11,7 @@ export default (req, res) => {
     const userTable = User.find({ user_cookie: req.cookies[cookieConfig.cookieName] });
     if (files.files instanceof Array) {
       for (let i = 0; i < files.files.length; i += 1) {
-        const newpath = `${__dirname}../../../../${files.files[i].name}`;
+        const newpath = `${__dirname}../../../../uploads/${files.files[i].name}`;
         const name = files.files[i].name;
         const old = files.files[i].path;
         fs.rename(old, newpath, () => {
@@ -26,8 +26,8 @@ export default (req, res) => {
         });
       }
     } else {
-      const newpath = `${__dirname}../../../../${files.files.name}`;
-      const { name } = files.files.name;
+      const newpath = `${__dirname}../../../../uploads/${files.files.name}`;
+      const name = files.files.name;
       const old = files.files.path;
       fs.rename(old, newpath, () => {
         if (err) throw err;

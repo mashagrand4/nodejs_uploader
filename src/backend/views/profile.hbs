@@ -3,15 +3,16 @@
 <head>
     <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
     <title>Images uploader</title>
+    <link rel="stylesheet" href="dist/styles/styles.css">
 </head>
 <body>
-    <div class="button-block">
-        <a class='button-block__exit-link' href="/logout">LOG OUT</a>
-        <a class='button-block__profile-link' href="/upload">UPLOAD</a>
+    <div class="buttons">
+        <a href="/" class="slds-button slds-button_success">Back to upload</a>
+        <a href="/logout" class="slds-button slds-button_destructive">Log out</a>
     </div>
-    <div class="images-block">
+    <div class="images-block" id="userImages">
         {{#each paths}}
-            <img src="{{ this }}" />
+        <img src="uploads/{{ this }}" />
         {{/each }}
     </div>
 
