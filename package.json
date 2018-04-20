@@ -8,8 +8,7 @@
     "dev": "npm run build:dev",
     "build:prod": "webpack --config build/webpack.config.prod.babel.js",
     "build:dev": "webpack  --watch --config build/webpack.config.dev.babel.js",
-    "eslint": "eslint --ext .js src",
-    "prepush": "if branch is dev; then npm run test; fi"
+    "eslint": "eslint --ext .js src"
   },
   "author": "Mary",
   "license": "ISC",
@@ -64,7 +63,8 @@
   },
   "husky": {
     "hooks": {
-      "pre-commit": "npx eslint . --fix && npm run eslint"
+      "pre-commit": "npx eslint . --fix && npm run eslint",
+      "pre-push": "npm run test"
     }
   },
   "_moduleAliases": {
