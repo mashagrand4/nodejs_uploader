@@ -12,14 +12,14 @@ export default class Validator {
   }
 
   static range(value) {
-    rangeValidation(value);
+    return rangeValidation(value);
   }
 
   static regexp(str, rule) {
-    regexpValidation(str, rule);
+    return regexpValidation(str, rule);
   }
 
   static type(needle, haystack) {
-    typeValidation(needle, haystack);
+    return typeValidation(needle, haystack);
   }
 }
