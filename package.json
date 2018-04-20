@@ -8,7 +8,8 @@
     "dev": "npm run build:dev",
     "build:prod": "webpack --config build/webpack.config.prod.babel.js",
     "build:dev": "webpack  --watch --config build/webpack.config.dev.babel.js",
-    "eslint": "eslint --ext .js src"
+    "eslint": "eslint --ext .js src",
+    "prepush": "if branch is dev; then npm run test; fi"
   },
   "author": "Mary",
   "license": "ISC",
