@@ -7,7 +7,7 @@ import registrationAction from '@/controllers/registration';
 import regPostAction from '@/controllers/regPost';
 import uploadAction from '@/controllers/upload';
 import uploadPostAction from '@/controllers/uploadPost';
-import passportTwitter from '../controllers/auth/twitter/twitterAuth';
+import passport from '@/controllers/auth';
 
 const router = express.Router();
 
@@ -17,25 +17,20 @@ router.get('/log', loginAction);
 router.get('/logout', logoutAction);
 router.get('/upload', uploadAction);
 router.get('/profile', profileAction);
-// router.get('/auth/facebook', passport.authenticate('facebook'));
-// router.get('/auth/facebook/callback', passport.authenticate('facebook', {
-//   successRedirect: '/',
-//   failureRedirect: '/log',
-// }));
-router.get(
-  '/auth/twitter',
-  passportTwitter.authenticate('twitter'),
-);
-
-router.get(
-  '/auth/twitter/callback', passportTwitter.authenticate('twitter', { failureRedirect: '/log' }),
-  (req, res) => {
-    res.redirect('/');
-  },
-);
+router.get('/auth/facebook', passport.authenticate('facebook'));
+router.get('/auth/facebook/callback', passport.authenticate('facebook', {
+  successRedirect: '/',
+  failureRedirect: '/log',
+  session: false,
+}));
+router.get('/auth/twitter', passport.authenticate('twitter'));
+router.get('/auth/twitter/callback', passport.authenticate('twitter', {
+  successRedirect: '/',
+  failureRedirect: '/log',
+  session: false,
+}));
 router.post('/upload', uploadPostAction);
 router.post('/reg', regPostAction);
 router.post('/log', logPostAction);
-
 
 export default router;
