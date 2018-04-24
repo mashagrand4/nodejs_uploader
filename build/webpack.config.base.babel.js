@@ -47,6 +47,7 @@ export default {
           loader: 'file-loader',
           options: {
             outputPath: 'images',
+            publicPath: '../images/',
           },
         },
       },
@@ -56,7 +57,7 @@ export default {
           loader: 'file-loader',
           options: {
             outputPath: 'fonts',
-            publicPath: 'dist/fonts/',
+            publicPath: '../fonts/',
           },
         },
       },
