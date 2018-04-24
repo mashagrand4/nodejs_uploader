@@ -11,32 +11,31 @@ export default (req, res) => {
     const userTable = User.find({ user_cookie: req.cookies[cookieConfig.cookieName] });
     if (files.files instanceof Array) {
       for (let i = 0; i < files.files.length; i += 1) {
-        const newpath = `${__dirname}../../../../${files.files[i].name}`;
-        const { name } = files.files[i].name;
+        const newpath = `${__dirname}../../../../uploads/${files.files[i].name}`;
+        const name = files.files[i].name;
         const old = files.files[i].path;
         fs.rename(old, newpath, () => {
           if (err) throw err;
-          console.log(userTable);
-          userTable.exec((user) => {
+          userTable.exec((error, user) => {
             const image = new Images({ path: name });
             image.save(() => {
-              user.images.push(image);
-              user.save(() => {});
+              user[0].images.push(image);
+              user[0].save(() => {});
             });
           });
         });
       }
     } else {
-      const newpath = `${__dirname}../../../../${files.files.name}`;
-      const { name } = files.files.name;
+      const newpath = `${__dirname}../../../../uploads/${files.files.name}`;
+      const name = files.files.name;
       const old = files.files.path;
       fs.rename(old, newpath, () => {
         if (err) throw err;
-        userTable.exec((user) => {
+        userTable.exec((error, user) => {
           const image = new Images({ path: name });
           image.save(() => {
-            user.images.push(image);
-            user.save();
+            user[0].images.push(image);
+            user[0].save(() => {});
           });
         });
       });

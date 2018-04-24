@@ -5,8 +5,13 @@
     <title>Images uploader</title>
 </head>
 <body>
+    <div class="buttons">
+        <a href="/profile" class="slds-button slds-button_success">Profile</a>
+        <a href="/logout" class="slds-button slds-button_destructive">Log out</a>
+    </div>
+
     <form class="slds-form-element slds-form__custom-upload" ref='uploadForm' id='uploadForm' action='/upload' method='POST' encType="multipart/form-data" >
-        <div class="slds-form-element">
+        <div class='slds-form-element'>
             <div class="slds-form-element__control  slds-form-element__control__custom-upload-button">
                 <input type="submit" id="upload" name="submit" class="slds-input slds-button_neutral" value="UPLOAD" />
             </div>

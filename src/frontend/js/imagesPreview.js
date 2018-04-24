@@ -14,7 +14,7 @@ const addToUploadArr = (fileItem) => {
 const isValidFile = (fileItem) => {
   if (
     !Validator.regexp(fileItem.name, /\.(jpe?g|png|pdf)$/i) ||
-    !Validator.type(fileItem, ['image/jpeg', 'image/png', 'application/pdf'])
+    !Validator.type(fileItem.type, ['image/jpeg', 'image/png', 'application/pdf'])
   ) {
     errorsArr.errors.push({
       fileName: fileItem.name,
@@ -22,6 +22,7 @@ const isValidFile = (fileItem) => {
     });
     return false;
   }
+
   if (!Validator.range(fileItem.size)) {
     errorsArr.errors.push({
       fileName: fileItem.name,
@@ -29,6 +30,7 @@ const isValidFile = (fileItem) => {
     });
     return false;
   }
+
   return true;
 };
 
@@ -41,7 +43,6 @@ const addPreview = (fileItem) => {
       id: fileItem.name,
     });
   } else {
-    console.log(errorsArr);
     errorBlock.innerHTML += wrongTemplate({
       fileName: fileItem.name,
       errorMessage: errorsArr.errors.filter(error => error.fileName === fileItem.name),

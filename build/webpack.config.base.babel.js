@@ -4,6 +4,8 @@ import CleanWebpackPlugin from 'clean-webpack-plugin';
 import NodemonPlugin from 'nodemon-webpack-plugin';
 import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+
 export default {
   entry: {
     main: path.resolve(__dirname, '../src/frontend/js/imagesPreview.js'),
@@ -77,10 +79,9 @@ export default {
       filename: 'index.html',
       template: 'src/backend/views/index.html',
     }),
-    new HtmlWebpackPlugin({
-      filename: 'profile.hbs',
-      template: 'src/backend/views/profile.hbs',
-    }),
+    new CopyWebpackPlugin([
+      { from: path.resolve(__dirname, '../src/backend/views/profile.hbs'), to: path.resolve(__dirname, '../dist/templates/profile.hbs') },
+    ]),
     new CleanWebpackPlugin('../dist'),
     new NodemonPlugin({
       watch: [
