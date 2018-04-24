@@ -1,24 +1,22 @@
-import passport from 'passport';
 import twitterStrategy from 'passport-twitter';
-import init from '../init';
-import config from '../authConfig';
+import config from './config';
 import db from '../../../db/index';
 
-const Strategytw = twitterStrategy.Strategy;
+const Strategy = twitterStrategy.Strategy;
 
-passport.use(new Strategytw(
+const strategy = new Strategy(
   {
-    consumerKey: config.twitter.consumerKey,
-    consumerSecret: config.twitter.consumerSecret,
-    callbackURL: config.twitter.callbackURL,
+    consumerKey: config.consumerKey,
+    consumerSecret: config.consumerSecret,
+    callbackURL: config.callbackURL,
   },
   ((accessToken, refreshToken, profile, done) => {
     const searchQuery = {
-      name: profile.displayName,
+      userName: profile.displayName,
     };
 
     const updates = {
-      name: profile.displayName,
+      userName: profile.displayName,
       someID: profile.id,
     };
 
@@ -34,8 +32,6 @@ passport.use(new Strategytw(
       return done(null, user);
     });
   }),
-));
+);
 
-init();
-
-export default passport;
+export default strategy;
