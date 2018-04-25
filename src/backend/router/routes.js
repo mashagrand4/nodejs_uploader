@@ -29,6 +29,12 @@ router.get('/auth/twitter/callback', passport.authenticate('twitter', {
   failureRedirect: '/log',
   session: false,
 }));
+router.get('/auth/google', passport.authenticate('google'));
+router.get('/auth/google/callback', passport.authenticate('google', {
+  successRedirect: '/',
+  failureRedirect: '/log',
+  session: false,
+}));
 router.post('/upload', uploadPostAction);
 router.post('/reg', regPostAction);
 router.post('/log', logPostAction);
