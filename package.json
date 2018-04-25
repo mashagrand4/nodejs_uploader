@@ -38,6 +38,7 @@
     "passport-facebook": "^2.1.1",
     "passport-google-oauth": "^1.0.0",
     "passport-google-oauth20": "^1.0.0",
+    "passport-local": "^1.0.0",
     "passport-twitter": "^1.0.4",
     "source-map-support": "0.4.3"
   },
