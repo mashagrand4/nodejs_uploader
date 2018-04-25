@@ -1,5 +1,5 @@
 export default {
-  consumerKey: 'get_your_own',
-  consumerSecret: 'get_your_own',
-  callbackURL: 'http://127.0.0.1:3000/auth/twitter/callback',
+  clientID: '958638824714-ubtvkqkkj1pn2ia5o6rvu5nek77pl6s7.apps.googleusercontent.com',
+  clientSecret: 'e7Mm1Qhs3RrTi9K5YWtikfuO',
+  callbackURL: 'http://localhost:3000/auth/google/callback',
 };
