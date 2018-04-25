@@ -21,22 +21,23 @@ router.get('/auth/facebook', passport.authenticate('facebook'));
 router.get('/auth/facebook/callback', passport.authenticate('facebook', {
   successRedirect: '/',
   failureRedirect: '/log',
-  session: false,
 }));
 router.get('/auth/twitter', passport.authenticate('twitter'));
 router.get('/auth/twitter/callback', passport.authenticate('twitter', {
   successRedirect: '/',
   failureRedirect: '/log',
-  session: false,
 }));
 router.get('/auth/google', passport.authenticate('google'));
 router.get('/auth/google/callback', passport.authenticate('google', {
   successRedirect: '/',
   failureRedirect: '/log',
-  session: false,
+}));
+router.post('/log', passport.authenticate('local', {
+  successRedirect: '/',
+  failureRedirect: '/log',
 }));
 router.post('/upload', uploadPostAction);
 router.post('/reg', regPostAction);
-router.post('/log', logPostAction);
+// router.post('/log', logPostAction);
 
 export default router;
